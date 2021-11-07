@@ -1,0 +1,56 @@
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+@layer base {
+  html {
+    @apply
+      font-thin
+      bg-gray-800
+      text-gray-300;
+  }
+
+  p {
+    @apply
+      pt-4;
+  }
+
+  a {
+    @apply
+      text-blue-200
+      hover:underline;
+  }
+
+  h1 {
+    @apply
+      font-medium
+      text-2xl
+      text-gray-100;
+  }
+
+  h2 {
+    @apply
+      font-normal
+      text-xl
+      pt-4
+      text-gray-200;
+  }
+
+  h3 {
+    @apply
+      font-normal
+      text-lg
+      pt-4
+      text-gray-200;
+  }
+
+  ul {
+    @apply
+      list-disc
+      list-inside
+      pt-4;
+  }
+}
