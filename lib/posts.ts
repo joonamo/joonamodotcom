@@ -16,7 +16,7 @@ export interface PageData {
 }
 
 export async function getAllPostIds(): Promise<PostInfo[]> {
-  const postFiles = await glob.promise("*/*/main.md", { cwd: postsDirectory })
+  const postFiles = await glob.promise("*/*/index.md", { cwd: postsDirectory })
   return postFiles.map((p) => {
     const parts = p.split("/")
     return {
@@ -31,7 +31,7 @@ export async function getPostData(
   pageName: string
 ): Promise<PageData> {
   const markdown = await fs.readFile(
-    path.join(postsDirectory, category, pageName, "main.md"),
+    path.join(postsDirectory, category, pageName, "index.md"),
     { encoding: "utf-8" }
   )
   const { content, data } = matter(markdown)
