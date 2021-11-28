@@ -8,7 +8,7 @@ import {
 } from "../../components/Basic"
 // import { ImageCarousel } from '../../components/ImageCarousel'
 import { Youtube, YoutubeImageReplacer } from "../../components/Youtube"
-import { getAllPostIds, getPostData } from "../../lib/posts"
+import { getAllPosts, getPostData } from "../../lib/posts"
 import ReactMarkdown from "react-markdown"
 
 interface Props {
@@ -48,19 +48,19 @@ const Project: NextPage<Props> = ({ data, content }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allIds = await getAllPostIds()
+  const allPosts = await getAllPosts()
   return {
-    paths: allIds.map((ids) => ({
+    paths: allPosts.posts.map((post) => ({
       params: {
-        pageName: ids.pageName,
-        category: ids.category,
+        pageName: post.pageName,
+        category: post.category,
       },
     })),
     fallback: false,
   }
 }
 
-export const getStaticProps: GetStaticProps = async (props) => {
+export const getStaticProps: GetStaticProps<Props> = async (props) => {
   if (!props.params?.category && props.params?.pageName) {
     throw new Error("I need better params")
   }
