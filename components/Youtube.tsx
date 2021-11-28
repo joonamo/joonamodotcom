@@ -1,5 +1,7 @@
-import React, { FunctionComponent } from 'react'
-import { ReactMarkdownProps } from 'react-markdown/lib/complex-types'
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
+import React, { FunctionComponent } from "react"
+import { ReactMarkdownProps } from "react-markdown/lib/complex-types"
 
 export const Youtube: FunctionComponent<{ id: string }> = (props) => (
   <div className={"flex aspect-w-16 aspect-h-9"}>
@@ -13,7 +15,13 @@ export const Youtube: FunctionComponent<{ id: string }> = (props) => (
   </div>
 )
 
-export const YoutubeImageReplacer: FunctionComponent<React.PropsWithChildren<React.ClassAttributes<HTMLImageElement> & React.ImgHTMLAttributes<HTMLImageElement> & ReactMarkdownProps>> = (props) => {
+export const YoutubeImageReplacer: FunctionComponent<
+  React.PropsWithChildren<
+    React.ClassAttributes<HTMLImageElement> &
+      React.ImgHTMLAttributes<HTMLImageElement> &
+      ReactMarkdownProps
+  >
+> = (props) => {
   const isYoutube = props.src?.startsWith("youtube://")
   if (isYoutube) {
     return <Youtube id={props.src!.replace("youtube://", "")} />
