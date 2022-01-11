@@ -1,19 +1,21 @@
-import path from "path"
-import matter from "gray-matter"
 import { promises as fs } from "fs"
 import * as glob from "glob-promise"
+import matter from "gray-matter"
+import path from "path"
 
 const postsDirectory = path.join(process.cwd(), "posts")
 
+export type Category = string
+
 export interface PostInfo {
-  category: string
+  category: Category
   pageName: string
+  data: { [key: string]: any }
 }
 
 export interface AllPostsInfo {
-  postsByCategories: Record<string, PostInfo[]>
   posts: PostInfo[]
-  categories: string[]
+  categories: Category[]
 }
 
 export interface PageData {
@@ -21,38 +23,32 @@ export interface PageData {
   data: { [key: string]: any }
 }
 
-export async function getAllPosts(): Promise<AllPostsInfo> {
-  const postFiles = await glob.promise("*/*/index.md", { cwd: postsDirectory })
-  const d = postFiles.reduce(
-    (prev, filename) => {
+export async function getPostsByCategory(
+  searchCategory?: Category
+): Promise<PostInfo[]> {
+  const postFiles = await glob.promise(`${searchCategory ?? "*"}/*/index.md`, {
+    cwd: postsDirectory,
+  })
+  return await Promise.all(
+    postFiles.map(async (filename) => {
       const parts = filename.split("/")
-      const post: PostInfo = {
-        category: parts[parts.length - 3],
-        pageName: parts[parts.length - 2],
-      }
-
+      const pageName = parts[parts.length - 2]
+      const category = parts[parts.length - 3]
+      const { data } = await getPostData(category, pageName)
       return {
-        postsByCategories: {
-          ...prev.postsByCategories,
-          [post.category]: prev.postsByCategories[post.category]
-            ? [...prev.postsByCategories[post.category], post]
-            : [post],
-        },
-        posts: [...prev.posts, post],
-        categories: prev.categories.add(post.category),
+        category,
+        pageName,
+        data,
       }
-    },
-    {
-      postsByCategories: {} as Record<string, PostInfo[]>,
-      posts: [] as PostInfo[],
-      categories: new Set<string>(),
-    }
+    })
   )
+}
 
-  return {
-    ...d,
-    categories: Array.from(d.categories),
-  }
+export async function getAllCategories(): Promise<Category[]> {
+  const categoryDirs = await glob.promise("*/", {
+    cwd: postsDirectory,
+  })
+  return categoryDirs.map((dir) => dir.slice(0, -1))
 }
 
 export async function getPostData(

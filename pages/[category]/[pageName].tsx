@@ -1,15 +1,16 @@
-import type { GetStaticProps, GetStaticPaths, NextPage } from "next"
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import React from "react"
+import ReactMarkdown from "react-markdown"
+
 import {
   Column,
+  DesktopTitle,
   MobileTitle,
   Spacer,
-  DesktopTitle,
 } from "../../components/Basic"
 // import { ImageCarousel } from '../../components/ImageCarousel'
 import { Youtube, YoutubeImageReplacer } from "../../components/Youtube"
-import { getAllPosts, getPostData } from "../../lib/posts"
-import ReactMarkdown from "react-markdown"
+import { getPostData, getPostsByCategory } from "../../lib/posts"
 
 interface Props {
   content: string
@@ -48,9 +49,9 @@ const Project: NextPage<Props> = ({ data, content }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPosts = await getAllPosts()
+  const allPosts = await getPostsByCategory()
   return {
-    paths: allPosts.posts.map((post) => ({
+    paths: allPosts.map((post) => ({
       params: {
         pageName: post.pageName,
         category: post.category,

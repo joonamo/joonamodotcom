@@ -5,10 +5,13 @@
     "eslint:recommended"
   ],
   "plugins": [
-    "prettier"
+    "prettier",
+    "eslint-plugin-simple-import-sort"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
   "root": true
 }
