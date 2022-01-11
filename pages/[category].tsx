@@ -2,16 +2,13 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import Link from "next/link"
 import React from "react"
 
-import { Column, DesktopTitle } from "../components/Basic"
-import {
-  Category,
-  getAllCategories,
-  getPostsByCategory,
-  PostInfo,
-} from "../lib/posts"
+import { Column, Title } from "../components/Basic"
+import { getAllCategoryNames, getCategoryInfo } from "../lib/categories"
+import { getPostsByCategory } from "../lib/posts"
+import { CategoryInfo, CategoryName, PostInfo } from "../lib/postsModel"
 
 interface Props {
-  category: Category
+  category: CategoryInfo
   posts: PostInfo[]
 }
 
@@ -20,10 +17,10 @@ const CategoryPage: NextPage<Props> = (props) => {
   return (
     <div className={"container mx-auto"}>
       <Column>
-        <DesktopTitle>{category}</DesktopTitle>
+        <Title>{category.title}</Title>
         {posts?.map(({ pageName, data }) => (
           <p key={pageName}>
-            <Link href={`${category}/${pageName}`}>
+            <Link href={`${category.name}/${pageName}`}>
               {data.title ?? pageName}
             </Link>
           </p>
@@ -34,7 +31,7 @@ const CategoryPage: NextPage<Props> = (props) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categories = await getAllCategories()
+  const categories = await getAllCategoryNames()
   return {
     paths: categories.map((category) => ({
       params: {
@@ -50,9 +47,12 @@ export const getStaticProps: GetStaticProps<Props> = async (props) => {
     throw new Error("I need better params")
   }
 
-  const category: Category = String(props.params?.category)
+  const categoryName: CategoryName = String(props.params?.category)
 
-  const posts = await getPostsByCategory(category)
+  const [posts, category] = await Promise.all([
+    getPostsByCategory(categoryName),
+    getCategoryInfo(categoryName),
+  ])
 
   return {
     props: {

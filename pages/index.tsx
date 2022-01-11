@@ -1,12 +1,13 @@
 import type { GetStaticProps, NextPage } from "next"
-import Link from "next/link"
 import React from "react"
 
-import { Column, DesktopTitle } from "../components/Basic"
-import { Category, getAllCategories } from "../lib/posts"
+import { Column, Title } from "../components/Basic"
+import { ImageItemGrid } from "../components/ImageItemGrid"
+import { getAllCategories } from "../lib/categories"
+import { CategoryInfo } from "../lib/postsModel"
 
 interface Props {
-  categories: Category[]
+  categories: CategoryInfo[]
 }
 
 const IndexPage: NextPage<Props> = (props) => {
@@ -14,12 +15,14 @@ const IndexPage: NextPage<Props> = (props) => {
   return (
     <div className={"container mx-auto"}>
       <Column>
-        <DesktopTitle>Joonamo</DesktopTitle>
-        {categories.map((category) => (
-          <p key={category}>
-            <Link href={category}>{category}</Link>
-          </p>
-        ))}
+        <Title>Joonamo</Title>
+        <ImageItemGrid
+          items={categories.map((category) => ({
+            title: category.title,
+            link: category.name,
+            image: category.cover,
+          }))}
+        />
       </Column>
     </div>
   )

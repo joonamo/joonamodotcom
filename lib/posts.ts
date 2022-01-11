@@ -3,28 +3,11 @@ import * as glob from "glob-promise"
 import matter from "gray-matter"
 import path from "path"
 
-const postsDirectory = path.join(process.cwd(), "posts")
-
-export type Category = string
-
-export interface PostInfo {
-  category: Category
-  pageName: string
-  data: { [key: string]: any }
-}
-
-export interface AllPostsInfo {
-  posts: PostInfo[]
-  categories: Category[]
-}
-
-export interface PageData {
-  content: string
-  data: { [key: string]: any }
-}
+import { CategoryName, PageData, PostInfo } from "./postsModel"
+import { postsDirectory } from "./serverConfig"
 
 export async function getPostsByCategory(
-  searchCategory?: Category
+  searchCategory?: CategoryName
 ): Promise<PostInfo[]> {
   const postFiles = await glob.promise(`${searchCategory ?? "*"}/*/index.md`, {
     cwd: postsDirectory,
@@ -42,13 +25,6 @@ export async function getPostsByCategory(
       }
     })
   )
-}
-
-export async function getAllCategories(): Promise<Category[]> {
-  const categoryDirs = await glob.promise("*/", {
-    cwd: postsDirectory,
-  })
-  return categoryDirs.map((dir) => dir.slice(0, -1))
 }
 
 export async function getPostData(
