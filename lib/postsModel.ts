@@ -9,7 +9,9 @@ export interface CategoryInfo {
 export interface PostInfo {
   category: CategoryName
   pageName: string
-  data: { [key: string]: any }
+  title: string
+  date?: string | null
+  cover?: string | null
 }
 
 export interface AllPostsInfo {

@@ -21,7 +21,9 @@ export async function getPostsByCategory(
       return {
         category,
         pageName,
-        data,
+        title: data.title ?? pageName,
+        date: data.year ?? null,
+        cover: data.cover ?? null,
       }
     })
   )

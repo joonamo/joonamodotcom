@@ -1,6 +1,7 @@
 ---
 title: "Classic Controller to XInput adapter"
 date: "2018-01-06"
+cover: "/images/electronics/classic-controller-to-xinput-adapter/example1.jpg"
 ---
 
 \>

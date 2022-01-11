@@ -1,6 +1,7 @@
 ---
 title: "Cattus Machina-01"
 date: "2020-03-08"
+cover: "/images/electronics/cattus-machina01/IMG_4698.JPG"
 ---
 
 <iframe src="//www.youtube.com/embed/3uatXpTok4I?wmode=opaque&amp;enablejsapi=1" scrolling="no" allowfullscreen width="640" height="480" frameborder="0"></iframe>

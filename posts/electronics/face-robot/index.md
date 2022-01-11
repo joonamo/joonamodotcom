@@ -1,6 +1,7 @@
 ---
 title: "Face \"Robot\""
 date: "2017-11-26"
+cover: "/images/electronics/face-robot/IMG_0137.jpg"
 ---
 
 <iframe src="//www.youtube.com/embed/JBH45iXPN5Q?wmode=opaque&amp;enablejsapi=1" height="480" width="640" scrolling="no" frameborder="0" allowfullscreen></iframe>

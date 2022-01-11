@@ -4,6 +4,10 @@ export const Column: FunctionComponent = (props) => (
   <div className={"flex flex-col flex-1 p-4"}>{props.children}</div>
 )
 
+export const PageTitle: FunctionComponent = (props) => (
+  <h1 className="text-6xl font-normal pb-6">{props.children}</h1>
+)
+
 export const Title: FunctionComponent = (props) => <h1>{props.children}</h1>
 
 export const MobileTitle: FunctionComponent<{ subtitle?: string }> = (

@@ -1,6 +1,7 @@
 ---
 title: "Miniature Robotron Arcade Cabinet"
 date: "2017-11-26"
+cover: "/images/electronics/miniature-robotron-arcade-game/Chibitron.jpeg"
 ---
 
 <img src="https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511614760038-K5R1OY6J0QLGKXFZB4B8/Chibitron.jpeg" alt="Chibitron.jpeg" />

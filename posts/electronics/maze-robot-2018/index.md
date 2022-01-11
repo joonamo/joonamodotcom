@@ -1,6 +1,7 @@
 ---
 title: "Maze Robot 2018"
 date: "2020-03-08"
+cover: "/images/electronics/maze-robot-2018/4473301376_IMG_7941.JPG"
 ---
 
 <iframe src="//www.youtube.com/embed/pJigP0RrrOI?wmode=opaque&amp;enablejsapi=1" scrolling="no" allowfullscreen width="640" height="480" frameborder="0"></iframe>

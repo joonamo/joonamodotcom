@@ -4,25 +4,25 @@ import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
-import { Filler } from "./Basic"
-
 interface ImageItem {
   title: string
   link: string
-  image: ImageProps["src"]
+  image?: ImageProps["src"] | null
 }
 
 interface GridProps {
   items: ImageItem[]
+  xlText?: boolean
 }
 
 export const ImageItemGrid: React.FunctionComponent<GridProps> = ({
   items,
+  xlText,
 }) => {
   return (
     <div className={"grid grid-cols-1 lg:grid-cols-3 gap-3"}>
       {items.map((item, i) => (
-        <ImageItemComponent key={`item-${i}`} item={item} />
+        <ImageItemComponent key={`item-${i}`} item={item} xlText={xlText} />
       ))}
     </div>
   )
@@ -30,9 +30,13 @@ export const ImageItemGrid: React.FunctionComponent<GridProps> = ({
 
 interface ItemProps {
   item: ImageItem
+  xlText?: boolean
 }
 
-const ImageItemComponent: React.FunctionComponent<ItemProps> = ({ item }) => {
+const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
+  item,
+  xlText,
+}) => {
   return (
     <Link href={item.link} passHref>
       <a>
@@ -43,24 +47,37 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({ item }) => {
             "lg:aspect-w-1",
             "lg:aspect-h-1",
             "overflow-hidden",
-            "rounded-3xl"
+            "rounded-3xl",
+            "bg-slate-700"
           )}
         >
-          <Image
-            src={item.image}
-            alt={item.title}
-            layout="fill"
-            objectFit="cover"
-          />
-          <div className={classNames("w-full", "h-full", "flex", "flex-col")}>
-            <Filler />
+          {item.image ? (
+            <Image
+              src={item.image}
+              alt={item.title}
+              layout="fill"
+              objectFit="cover"
+            />
+          ) : null}
+          <div
+            className={classNames(
+              "w-full",
+              "h-full",
+              "flex",
+              "flex-col",
+              "place-content-end"
+            )}
+          >
             <h2
               className={classNames(
                 "bg-slate-900/75",
                 "text-right",
-                "pr-5",
-                "text-6xl",
-                "xl:text-7xl",
+                "px-5",
+                "pb-3",
+                "min-h-[30%]",
+                xlText
+                  ? "text-5xl xl:text-6xl"
+                  : "text-4xl lg:text-xl xl:text-3xl",
                 "font-thin"
               )}
             >

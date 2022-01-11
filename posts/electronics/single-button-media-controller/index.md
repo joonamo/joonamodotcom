@@ -1,6 +1,7 @@
 ---
 title: "Single button media controller"
 date: "2017-11-26"
+cover: "/images/electronics/single-button-media-controller/preview.jpg" 
 ---
 
 \>

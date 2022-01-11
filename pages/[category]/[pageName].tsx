@@ -11,21 +11,16 @@ import {
 // import { ImageCarousel } from '../../components/ImageCarousel'
 import { Youtube, YoutubeImageReplacer } from "../../components/Youtube"
 import { getPostData, getPostsByCategory } from "../../lib/posts"
+import { PageData } from "../../lib/postsModel"
 
-interface Props {
-  content: string
-  data: {
-    year?: string
-    title?: string
-  }
-}
+interface Props extends PageData {}
 
 const Project: NextPage<Props> = ({ data, content }) => {
   return (
     <div className={"container mx-auto"}>
       <div className={"md:grid grid-cols-2"}>
         <Column>
-          <MobileTitle subtitle={data.year}>{data.title}</MobileTitle>
+          <MobileTitle subtitle={data.date}>{data.title}</MobileTitle>
           <Youtube id="xObRmJujaG8" />
           <Spacer />
           {/* <ImageCarousel
@@ -33,7 +28,7 @@ const Project: NextPage<Props> = ({ data, content }) => {
           /> */}
         </Column>
         <Column>
-          <DesktopTitle subtitle={data.year}>{data.title}</DesktopTitle>
+          <DesktopTitle subtitle={data.date}>{data.title}</DesktopTitle>
           <ReactMarkdown
             transformImageUri={undefined}
             components={{
@@ -62,7 +57,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (props) => {
-  if (!props.params?.category && props.params?.pageName) {
+  if (!props.params?.category || !props.params?.pageName) {
     throw new Error("I need better params")
   }
   const data = await getPostData(

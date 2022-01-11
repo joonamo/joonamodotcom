@@ -17,6 +17,7 @@ const IndexPage: NextPage<Props> = (props) => {
       <Column>
         <Title>Joonamo</Title>
         <ImageItemGrid
+          xlText={true}
           items={categories.map((category) => ({
             title: category.title,
             link: category.name,

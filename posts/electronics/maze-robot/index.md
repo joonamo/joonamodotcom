@@ -1,6 +1,7 @@
 ---
 title: "Maze Robot \"Robo McRobotface\""
 date: "2017-11-26"
+cover: "/images/electronics/maze-robot/2017_005.jpg"
 ---
 
 <iframe src="//www.youtube.com/embed/kVV0BhLAqjQ?wmode=opaque&amp;enablejsapi=1" height="480" width="640" scrolling="no" frameborder="0" allowfullscreen></iframe>
