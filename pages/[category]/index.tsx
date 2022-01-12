@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import React from "react"
 
-import { Column, PageTitle } from "../../components/Basic"
+import { PageTitle } from "../../components/Basic"
 import { ImageItemGrid } from "../../components/ImageItemGrid"
 import { getAllCategoryNames, getCategoryInfo } from "../../lib/categories"
 import { getPostsByCategory } from "../../lib/posts"
@@ -16,16 +16,14 @@ const CategoryPage: NextPage<Props> = (props) => {
   const { category, posts } = props
   return (
     <div className={"container mx-auto"}>
-      <Column>
-        <PageTitle>{category.title}</PageTitle>
-        <ImageItemGrid
-          items={posts?.map(({ pageName, title, cover }) => ({
-            title: title,
-            link: `${category.name}/${pageName}`,
-            image: cover,
-          }))}
-        />
-      </Column>
+      <PageTitle>{category.title}</PageTitle>
+      <ImageItemGrid
+        items={posts?.map(({ pageName, title, cover }) => ({
+          title: title,
+          link: `${category.name}/${pageName}`,
+          image: cover,
+        }))}
+      />
     </div>
   )
 }

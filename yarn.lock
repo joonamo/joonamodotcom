@@ -3132,6 +3132,7 @@ autoprefixer@latest:
     postcss: latest
     prettier: ^2.5.0
     react: 17.0.2
+    react-cool-dimensions: ^2.0.7
     react-dom: 17.0.2
     react-markdown: ^7.1.0
     tailwindcss: latest
@@ -4625,6 +4626,15 @@ postcss@latest:
     iconv-lite: 0.4.24
     unpipe: 1.0.0
   checksum: d5e9179d2f1f0a652cd107c080f25d165c724f546124d620c8df7fb80322df42bff547a8b310e55e1f7952556d013716a21b30162192eb0b3332d7efcba75883
+  languageName: node
+  linkType: hard
+
+"react-cool-dimensions@npm:^2.0.7":
+  version: 2.0.7
+  resolution: "react-cool-dimensions@npm:2.0.7"
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: a2cb3b86824c7396d433a516704c7c2c8abf24c24040cb78ce4571e97b4ac2c03e00cf8f223f56bcf61604206309e0c0a66ac8ac16f3896ae92838e1263cff9e
   languageName: node
   linkType: hard
 

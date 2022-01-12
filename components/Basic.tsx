@@ -5,7 +5,7 @@ export const Column: FunctionComponent = (props) => (
 )
 
 export const PageTitle: FunctionComponent = (props) => (
-  <h1 className="text-6xl font-normal pb-6">{props.children}</h1>
+  <h1 className="text-6xl font-light pb-6">{props.children}</h1>
 )
 
 export const Title: FunctionComponent = (props) => <h1>{props.children}</h1>

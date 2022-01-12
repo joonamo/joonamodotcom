@@ -3,6 +3,9 @@ import { ImageProps } from "next/image"
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
+import useDimensions from "react-cool-dimensions"
+
+import { isServer } from "../lib/nextHelpers"
 
 interface ImageItem {
   title: string
@@ -37,6 +40,9 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
   item,
   xlText,
 }) => {
+  const { observe, width } = useDimensions<HTMLDivElement | null>()
+  const displayImage = item.image && (width > 0 || isServer)
+
   return (
     <Link href={item.link} passHref>
       <a>
@@ -50,13 +56,15 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
             "rounded-3xl",
             "bg-slate-700"
           )}
+          ref={observe}
         >
-          {item.image ? (
+          {displayImage ? (
             <Image
-              src={item.image}
+              src={item.image!}
               alt={item.title}
               layout="fill"
               objectFit="cover"
+              sizes={width > 0 ? `${Math.round(width)}px` : "100vw"}
             />
           ) : null}
           <div
