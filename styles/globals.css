@@ -13,12 +13,17 @@
     @apply
       font-thin
       bg-gray-800
-      text-gray-300;
+      text-pink-50;
   }
 
   p {
     @apply
-      pt-4;
+      my-4;
+  }
+
+  p:first-child {
+    @apply
+      mt-0;
   }
 
   a {
@@ -31,7 +36,7 @@
     @apply
       font-medium
       text-2xl
-      text-gray-100;
+      text-indigo-200;
   }
 
   h2 {
@@ -39,7 +44,7 @@
       font-normal
       text-xl
       pt-4
-      text-gray-200;
+      text-indigo-200;
   }
 
   h3 {
@@ -47,13 +52,27 @@
       font-normal
       text-lg
       pt-4
-      text-gray-200;
+      text-indigo-200;
   }
 
   ul {
     @apply
       list-disc
-      list-inside
-      pt-4;
+      list-inside;
+  }
+
+  ol {
+    @apply
+      list-decimal
+      list-inside;
+  }
+}
+
+@layer components {
+  .jm-container {
+    @apply
+      container
+      mx-auto
+      px-4;
   }
 }

@@ -85,8 +85,9 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
                 "min-h-[30%]",
                 xlText
                   ? "text-5xl xl:text-6xl"
-                  : "text-4xl lg:text-xl xl:text-3xl",
-                "font-thin"
+                  : "text-4xl lg:text-2xl xl:text-4xl",
+                "font-thin",
+                "hover:underline"
               )}
             >
               {item.title}

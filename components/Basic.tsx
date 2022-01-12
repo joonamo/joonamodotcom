@@ -1,31 +1,21 @@
 import { FunctionComponent } from "react"
 
-export const Column: FunctionComponent = (props) => (
-  <div className={"flex flex-col flex-1 p-4"}>{props.children}</div>
-)
-
-export const PageTitle: FunctionComponent = (props) => (
-  <h1 className="text-6xl font-light pb-6">{props.children}</h1>
-)
-
-export const Title: FunctionComponent = (props) => <h1>{props.children}</h1>
-
-export const MobileTitle: FunctionComponent<{ subtitle?: string }> = (
-  props
-) => (
-  <div className={"md:hidden"}>
-    <Title>{props.children}</Title>
-    {props.subtitle && <p className={"pt-0"}>{props.subtitle}</p>}
+export const Column: FunctionComponent<{ className?: string }> = (props) => (
+  <div className={"flex flex-col flex-1 " + (props.className ?? "")}>
+    {props.children}
   </div>
 )
 
-export const DesktopTitle: FunctionComponent<{ subtitle?: string }> = (
-  props
-) => (
-  <div className={"hidden md:block"}>
-    <Title>{props.children}</Title>
+export const PageTitle: FunctionComponent<{
+  subtitle?: string | null
+  className?: string
+}> = (props) => (
+  <>
+    <h1 className={"text-6xl font-light pb-6 " + (props.className ?? "")}>
+      {props.children}
+    </h1>
     {props.subtitle && <p className={"pt-0"}>{props.subtitle}</p>}
-  </div>
+  </>
 )
 
 export const Spacer: FunctionComponent = () => <div className={"pt-4"} />

@@ -12,6 +12,7 @@ export interface PostInfo {
   title: string
   date?: string | null
   cover?: string | null
+  youtube?: string | string[] | null
 }
 
 export interface AllPostsInfo {
@@ -21,5 +22,5 @@ export interface AllPostsInfo {
 
 export interface PageData {
   content: string
-  data: { [key: string]: any }
+  data: PostInfo
 }

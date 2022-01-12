@@ -2,44 +2,48 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import React from "react"
 import ReactMarkdown from "react-markdown"
 
-import {
-  Column,
-  DesktopTitle,
-  MobileTitle,
-  Spacer,
-} from "../../components/Basic"
+import { BasePage, BasePageProps } from "../../components/BasePage"
+import { Column, PageTitle, Spacer } from "../../components/Basic"
 // import { ImageCarousel } from '../../components/ImageCarousel'
 import { Youtube, YoutubeImageReplacer } from "../../components/Youtube"
+import { getAllCategories } from "../../lib/categories"
+import { listify } from "../../lib/helpers"
 import { getPostData, getPostsByCategory } from "../../lib/posts"
 import { PageData } from "../../lib/postsModel"
 
-interface Props extends PageData {}
+interface Props extends BasePageProps, PageData {}
 
-const Project: NextPage<Props> = ({ data, content }) => {
+const Project: NextPage<Props> = ({ data, content, allCategories }) => {
   return (
-    <div className={"container mx-auto"}>
-      <div className={"md:grid grid-cols-2"}>
-        <Column>
-          <MobileTitle subtitle={data.date}>{data.title}</MobileTitle>
-          <Youtube id="xObRmJujaG8" />
+    <BasePage allCategories={allCategories}>
+      <PageTitle className="md:text-right text-fuchsia-200">
+        {data.title}
+      </PageTitle>
+      <div className={"md:grid grid-cols-2 gap-3"}>
+        <Column className="gap-4">
+          {data.youtube
+            ? listify(data.youtube).map((id, i) => (
+                <Youtube key={`yt-${i}`} id={id} />
+              ))
+            : null}
           <Spacer />
           {/* <ImageCarousel
             images={[an1, an7, an2, an3, an4, an5, an6, an1, an7, an2, an3, an4, an5, an6]}
           /> */}
         </Column>
         <Column>
-          <DesktopTitle subtitle={data.date}>{data.title}</DesktopTitle>
           <ReactMarkdown
             transformImageUri={undefined}
             components={{
               img: YoutubeImageReplacer,
             }}
+            className="break-words"
           >
             {content}
           </ReactMarkdown>
         </Column>
       </div>
-    </div>
+    </BasePage>
   )
 }
 
@@ -60,13 +64,16 @@ export const getStaticProps: GetStaticProps<Props> = async (props) => {
   if (!props.params?.category || !props.params?.pageName) {
     throw new Error("I need better params")
   }
-  const data = await getPostData(
-    props.params!.category as string,
-    props.params!.pageName as string
-  )
+  const [data, allCategories] = await Promise.all([
+    getPostData(
+      props.params!.category as string,
+      props.params!.pageName as string
+    ),
+    getAllCategories(),
+  ])
 
   return {
-    props: data,
+    props: { ...data, allCategories },
   }
 }
 

@@ -1,6 +1,7 @@
 ---
 title: Alienation (Housemarque, PS4)
-year: 2016
+date: 2016
+youtube: xObRmJujaG8
 ---
 
 Alienation is a top-down action game by Housemarque released for PlayStation 4. Alienation features explosive action with tons of enemies on screen at once with up to four player online and offline multiplayer.

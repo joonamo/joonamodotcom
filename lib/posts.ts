@@ -22,7 +22,7 @@ export async function getPostsByCategory(
         category,
         pageName,
         title: data.title ?? pageName,
-        date: data.year ?? null,
+        date: data.date ?? null,
         cover: data.cover ?? null,
       }
     })
@@ -37,6 +37,6 @@ export async function getPostData(
     path.join(postsDirectory, category, pageName, "index.md"),
     { encoding: "utf-8" }
   )
-  const { content, data } = matter(markdown)
-  return { content, data }
+  const decoded = matter(markdown)
+  return { content: decoded.content, data: decoded.data as PostInfo }
 }

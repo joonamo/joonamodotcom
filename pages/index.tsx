@@ -1,36 +1,34 @@
 import type { GetStaticProps, NextPage } from "next"
 import React from "react"
 
+import { BasePage, BasePageProps } from "../components/BasePage"
 import { PageTitle } from "../components/Basic"
 import { ImageItemGrid } from "../components/ImageItemGrid"
 import { getAllCategories } from "../lib/categories"
-import { CategoryInfo } from "../lib/postsModel"
 
-interface Props {
-  categories: CategoryInfo[]
-}
+interface Props extends BasePageProps {}
 
 const IndexPage: NextPage<Props> = (props) => {
-  const { categories } = props
+  const { allCategories } = props
   return (
-    <div className={"container mx-auto"}>
+    <BasePage allCategories={allCategories}>
       <PageTitle>Portfolio</PageTitle>
       <ImageItemGrid
         xlText={true}
-        items={categories.map((category) => ({
+        items={allCategories.map((category) => ({
           title: category.title,
           link: category.name,
           image: category.cover,
         }))}
       />
-    </div>
+    </BasePage>
   )
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
-      categories: await getAllCategories(),
+      allCategories: await getAllCategories(),
     },
   }
 }

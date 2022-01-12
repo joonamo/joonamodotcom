@@ -1,21 +1,26 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import React from "react"
 
+import { BasePage, BasePageProps } from "../../components/BasePage"
 import { PageTitle } from "../../components/Basic"
 import { ImageItemGrid } from "../../components/ImageItemGrid"
-import { getAllCategoryNames, getCategoryInfo } from "../../lib/categories"
+import {
+  getAllCategories,
+  getAllCategoryNames,
+  getCategoryInfo,
+} from "../../lib/categories"
 import { getPostsByCategory } from "../../lib/posts"
 import { CategoryInfo, CategoryName, PostInfo } from "../../lib/postsModel"
 
-interface Props {
+interface Props extends BasePageProps {
   category: CategoryInfo
   posts: PostInfo[]
 }
 
 const CategoryPage: NextPage<Props> = (props) => {
-  const { category, posts } = props
+  const { category, posts, allCategories } = props
   return (
-    <div className={"container mx-auto"}>
+    <BasePage allCategories={allCategories}>
       <PageTitle>{category.title}</PageTitle>
       <ImageItemGrid
         items={posts?.map(({ pageName, title, cover }) => ({
@@ -24,7 +29,7 @@ const CategoryPage: NextPage<Props> = (props) => {
           image: cover,
         }))}
       />
-    </div>
+    </BasePage>
   )
 }
 
@@ -47,15 +52,17 @@ export const getStaticProps: GetStaticProps<Props> = async (props) => {
 
   const categoryName: CategoryName = String(props.params?.category)
 
-  const [posts, category] = await Promise.all([
+  const [posts, category, allCategories] = await Promise.all([
     getPostsByCategory(categoryName),
     getCategoryInfo(categoryName),
+    getAllCategories(),
   ])
 
   return {
     props: {
       category,
       posts,
+      allCategories,
     },
   }
 }
