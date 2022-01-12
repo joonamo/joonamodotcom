@@ -16,11 +16,9 @@ interface Props extends BasePageProps, PageData {}
 const Project: NextPage<Props> = ({ data, content, allCategories }) => {
   return (
     <BasePage allCategories={allCategories}>
-      <PageTitle className="md:text-right text-fuchsia-200">
-        {data.title}
-      </PageTitle>
       <div className={"md:grid grid-cols-2 gap-3"}>
         <Column className="gap-4">
+          <PageTitle>{data.title}</PageTitle>
           {data.youtube
             ? listify(data.youtube).map((id, i) => (
                 <Youtube key={`yt-${i}`} id={id} />

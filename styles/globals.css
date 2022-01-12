@@ -21,15 +21,11 @@
       my-4;
   }
 
-  p:first-child {
-    @apply
-      mt-0;
-  }
-
   a {
     @apply
       text-blue-200
-      hover:underline;
+      hover:underline
+      decoration-1;
   }
 
   h1 {

@@ -22,7 +22,16 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   )
 
   return (
-    <div className={classNames("w-full", "py-2", "mb-6", "bg-gray-900")}>
+    <div
+      className={classNames(
+        "w-full",
+        "py-2",
+        "mb-6",
+        "bg-gray-900",
+        "fixed",
+        "top-0"
+      )}
+    >
       <div className={classNames("jm-container", "flex", "items-end")}>
         <Link href="/" passHref>
           <a>
@@ -44,35 +53,34 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
           </a>
         </Link>
       </div>
-      <div className="flex md:hidden place-content-center">
-        <a onClick={toggleMenu}>
-          <div
-            className={classNames(
-              "flex",
-              "flex-col",
-              "w-[30px]",
-              "h-[30px]",
-              "place-content-around"
-            )}
-          >
-            <div className="w-full h-[3px] bg-indigo-300 rounded-full" />
-            <div className="w-full h-[3px] bg-indigo-300 rounded-full" />
-            <div className="w-full h-[3px] bg-indigo-300 rounded-full" />
-          </div>
+      <div className="flex lg:hidden place-content-center mt-4">
+        <a
+          onClick={toggleMenu}
+          className={classNames(
+            "flex",
+            "flex-col",
+            "w-1/5",
+            "h-[30px]",
+            "place-content-around"
+          )}
+        >
+          <div className="w-full h-[3px] bg-indigo-300 rounded-full" />
+          <div className="w-full h-[3px] bg-indigo-300 rounded-full" />
+          <div className="w-full h-[3px] bg-indigo-300 rounded-full" />
         </a>
       </div>
       <div
         className={classNames(
           menuOpen ? "flex" : "hidden",
-          "md:flex",
+          "lg:flex",
           "jm-container",
           "py-2",
-          "md:items-end",
-          "md:place-content-end",
+          "lg:items-end",
+          "lg:place-content-end",
           "text-2xl",
           "gap-4",
           "flex-col",
-          "md:flex-row"
+          "lg:flex-row"
         )}
       >
         {allCategories.map((category) => (

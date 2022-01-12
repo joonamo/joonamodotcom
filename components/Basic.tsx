@@ -11,7 +11,11 @@ export const PageTitle: FunctionComponent<{
   className?: string
 }> = (props) => (
   <>
-    <h1 className={"text-6xl font-light pb-6 " + (props.className ?? "")}>
+    <h1
+      className={
+        "text-6xl font-light pb-6 text-purple-100 " + (props.className ?? "")
+      }
+    >
       {props.children}
     </h1>
     {props.subtitle && <p className={"pt-0"}>{props.subtitle}</p>}
