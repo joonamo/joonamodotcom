@@ -21,16 +21,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   )
 
   return (
-    <div
-      className={classNames(
-        "w-full",
-        "py-2",
-        "mb-6",
-        "bg-gray-900",
-        "fixed",
-        "top-0"
-      )}
-    >
+    <div className={classNames("w-full", "py-2", "mb-6", "bg-gray-900")}>
       <div className={classNames("jm-container", "flex")}>
         <Link href="/" passHref>
           <a>
