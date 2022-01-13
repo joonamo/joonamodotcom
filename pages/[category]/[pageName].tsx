@@ -16,7 +16,7 @@ interface Props extends BasePageProps, PageData {}
 const Project: NextPage<Props> = ({ data, content, allCategories }) => {
   return (
     <BasePage allCategories={allCategories}>
-      <div className={"md:grid grid-cols-2 gap-3"}>
+      <div className={"md:grid grid-cols-2 gap-10"}>
         <Column className="gap-4">
           <PageTitle>{data.title}</PageTitle>
           {data.slideshow ? (
