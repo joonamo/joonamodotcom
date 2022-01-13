@@ -35,7 +35,7 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
         ) : null}
       </div>
       {images.length > 1 ? (
-        <div className="w-full overflow-x-auto">
+        <div className="w-full overflow-x-auto overflow-y-hidden">
           <div className="flex flex-row">
             {images.map((im, i) => (
               <a
