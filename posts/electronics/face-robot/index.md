@@ -1,14 +1,9 @@
 ---
 title: "Face \"Robot\""
-date: "2017-11-26"
+date: "2017"
 cover: "/images/electronics/face-robot/IMG_0137.jpg"
+youtube: JBH45iXPN5Q
 ---
-
-<iframe src="//www.youtube.com/embed/JBH45iXPN5Q?wmode=opaque&amp;enablejsapi=1" height="480" width="640" scrolling="no" frameborder="0" allowfullscreen></iframe>
-
-# Face Robot
-
-2017
 
 I built this cute little "robot" to practise using servo motors and and old Nokia 5510 screen with Arduino. The simple robot looks around and shows different random expressions on it's "face". All components are mounted on a 3D printed base that I designed with Autodesk Fusion 360.
 

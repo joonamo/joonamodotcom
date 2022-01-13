@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable @next/next/no-img-element */
 import React, { FunctionComponent } from "react"
 import { ReactMarkdownProps } from "react-markdown/lib/complex-types"
 
@@ -26,6 +24,7 @@ export const YoutubeImageReplacer: FunctionComponent<
   if (isYoutube) {
     return <Youtube id={props.src!.replace("youtube://", "")} />
   } else {
-    return <img {...props} />
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img {...props} alt={props.title} />
   }
 }

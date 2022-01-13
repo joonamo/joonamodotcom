@@ -1,13 +1,9 @@
 ---
 title: "Huippis Herding (Reaktor Gamejam)"
-date: "2020-03-09"
+date: 2019
+youtube: fBaw-LX4sno
+cover: /images/games/huippis-herding/maxresdefault.jpg
 ---
-
-<iframe src="//www.youtube.com/embed/fBaw-LX4sno?wmode=opaque&amp;enablejsapi=1" scrolling="no" allowfullscreen width="640" height="480" frameborder="0"></iframe>
-
-### Huippis Herding (Reaktor Gamejam)
-
-2019
 
 Huippis Herding is a game I made in a two person team for Reaktor Gamejam in 48 hours. In this game, your mission is to make your team of “Huippis” attend various fun events at Reaktor sauna floor. Equipped with beer to attract them and “Party Mocca“ to repel them, you herd them around a bit like a herd of sheep.
 
@@ -17,7 +13,5 @@ Play the game here in your browser: [https://joonamo.github.io/rgame/](https://j
 Code available in Github: [https://github.com/joonamo/rgame](https://github.com/joonamo/rgame)
 
 ### Tools Used
-
 - Unity
-    
 - Affinity Designer

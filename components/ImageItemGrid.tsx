@@ -73,7 +73,7 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
               "h-full",
               "flex",
               "flex-col",
-              "place-content-end"
+              "justify-end"
             )}
           >
             <h2

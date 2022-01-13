@@ -31,7 +31,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
         "top-0"
       )}
     >
-      <div className={classNames("jm-container", "flex", "items-end")}>
+      <div className={classNames("jm-container", "flex")}>
         <Link href="/" passHref>
           <a>
             <Image
@@ -63,9 +63,9 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
             "place-content-around"
           )}
         >
-          <div className="w-full h-[3px] bg-indigo-300 rounded-full" />
-          <div className="w-full h-[3px] bg-indigo-300 rounded-full" />
-          <div className="w-full h-[3px] bg-indigo-300 rounded-full" />
+          <div key={1} className="w-full h-[3px] bg-indigo-300 rounded-full" />
+          <div key={2} className="w-full h-[3px] bg-indigo-300 rounded-full" />
+          <div key={3} className="w-full h-[3px] bg-indigo-300 rounded-full" />
         </a>
       </div>
       <div
@@ -74,8 +74,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
           "lg:flex",
           "jm-container",
           "py-2",
-          "lg:items-end",
-          "lg:place-content-end",
+          "lg:justify-end",
           "text-2xl",
           "gap-4",
           "flex-col",
@@ -100,8 +99,14 @@ const CategoryLink: React.FunctionComponent<CategoryLinkProps> = ({
   category,
 }) => {
   return (
-    <Link href={`/${encodeURIComponent(category.name)}`} passHref>
-      <a className="text-violet-200">{category.title}</a>
+    <Link
+      key={category.name}
+      href={`/${encodeURIComponent(category.name)}`}
+      passHref
+    >
+      <a key={category.name} className="text-violet-200">
+        {category.title}
+      </a>
     </Link>
   )
 }

@@ -1,41 +1,14 @@
 ---
 title: "Master's Thesis: Photoplaces"
-date: "2017-11-26"
+date: "2015"
+cover: "/images/web/masters-thesis-photoplaces/gui+screenshot+2.png"
+slideshow: 
+  - /images/web/masters-thesis-photoplaces/gui+screenshot+2.png
+  - /images/web/masters-thesis-photoplaces/biking+pit+stop_.png
+  - /images/web/masters-thesis-photoplaces/flower+garden.png
+  - /images/web/masters-thesis-photoplaces/hanami.png
+  - /images/web/masters-thesis-photoplaces/kobe_zoo_3.png
 ---
-
-<img src="https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692323538-I8M7HFCWNRD2R6MYA0QX/gui+screenshot+2.png" alt="gui screenshot 2.png" />
-
-![gui screenshot 2.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692323538-I8M7HFCWNRD2R6MYA0QX/gui+screenshot+2.png)
-
-<img src="https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692310883-LAJT3FRHCTSZBOTI06H8/biking+pit+stop\_.png" alt="biking pit stop\_.png" />
-
-![biking pit stop_.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692310883-LAJT3FRHCTSZBOTI06H8/biking+pit+stop_.png)
-
-<img src="https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692310065-7VV1451JPPT2N651HFK7/flower+garden.png" alt="flower garden.png" />
-
-![flower garden.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692310065-7VV1451JPPT2N651HFK7/flower+garden.png)
-
-<img src="https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692325684-62T0HBPQ3MEO6IMVC075/hanami.png" alt="hanami.png" />
-
-![hanami.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692325684-62T0HBPQ3MEO6IMVC075/hanami.png)
-
-<img src="https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692329094-4YQ2KU3M5B6CRP4C58AK/kobe\_zoo\_3.png" alt="kobe\_zoo\_3.png" />
-
-![kobe_zoo_3.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692329094-4YQ2KU3M5B6CRP4C58AK/kobe_zoo_3.png)
-
-![gui screenshot 2.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692323538-I8M7HFCWNRD2R6MYA0QX/gui+screenshot+2.png)
-
-![biking pit stop_.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692310883-LAJT3FRHCTSZBOTI06H8/biking+pit+stop_.png)
-
-![flower garden.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692310065-7VV1451JPPT2N651HFK7/flower+garden.png)
-
-![hanami.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692325684-62T0HBPQ3MEO6IMVC075/hanami.png)
-
-![kobe_zoo_3.png](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1511692329094-4YQ2KU3M5B6CRP4C58AK/kobe_zoo_3.png)
-
-# Master's Thesis: Photoplaces
-
-2015
 
 For my Master's Thesis, I researched using publicly available metadata from photos to find interesting places for tourists to visit. The results were displayed in web browser.
 
