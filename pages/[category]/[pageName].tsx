@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown"
 
 import { BasePage, BasePageProps } from "../../components/BasePage"
 import { Column, PageTitle, Spacer } from "../../components/Basic"
-// import { ImageCarousel } from '../../components/ImageCarousel'
+import { ImageCarousel } from "../../components/ImageCarousel"
 import { Youtube, YoutubeImageReplacer } from "../../components/Youtube"
 import { getAllCategories } from "../../lib/categories"
 import { listify } from "../../lib/helpers"
@@ -19,15 +19,15 @@ const Project: NextPage<Props> = ({ data, content, allCategories }) => {
       <div className={"md:grid grid-cols-2 gap-3"}>
         <Column className="gap-4">
           <PageTitle>{data.title}</PageTitle>
+          {data.slideshow ? (
+            <ImageCarousel images={listify(data.slideshow)} />
+          ) : null}
           {data.youtube
             ? listify(data.youtube).map((id, i) => (
                 <Youtube key={`yt-${i}`} id={id} />
               ))
             : null}
           <Spacer />
-          {/* <ImageCarousel
-            images={[an1, an7, an2, an3, an4, an5, an6, an1, an7, an2, an3, an4, an5, an6]}
-          /> */}
         </Column>
         <Column>
           <ReactMarkdown

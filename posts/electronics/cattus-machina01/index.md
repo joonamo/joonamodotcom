@@ -5,6 +5,10 @@ cover: "/images/electronics/cattus-machina01/IMG_4698.JPG"
 youtube:
   - 3uatXpTok4I
   - En-yaYvyIxo
+slideshow:
+  - "/images/electronics/cattus-machina01/IMG_4698.JPG"
+  - "/images/electronics/cattus-machina01/IMG_20190510_212329.jpg"
+  - "/images/electronics/cattus-machina01/IMG-20190615-WA0000.jpg"
 ---
 
 Once again, I took part in Hacklab.fi’s Robotit Strömbergin Puistossa robot building event and this time wanted to have something special: a maze robot with no traditional steering. This robot can only move forwards, but it has hands that can be used to push it away from walls. This worked surprisingly well and I ended up winning both the fastest time and audience’s favourite competitions!
@@ -19,12 +23,6 @@ The working logic for the robot is super simple:
     
 
 I had to tweak the parameters of the point 2 a bit to complete the maze, but it worked suprisingly well. The two hands were different lenghts, so they had a bit different settings. Everything was written as a simple finite state machina. All code can be found in github: [https://github.com/joonamo/cattusmachina](https://github.com/joonamo/cattusmachina)
-
-![IMG_4698.JPG](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1583595771834-Y5SIIPMPOF0NY9K433IB/IMG_4698.JPG)
-
-![IMG_20190510_212329.jpg](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1583595776992-8IPN8GA8GHN74M17AUUK/IMG_20190510_212329.jpg)
-
-![IMG-20190615-WA0000.jpg](https://images.squarespace-cdn.com/content/v1/5a1957c7bce17620f85c098a/1583595778137-7AB9U7OKRUFWE0QJYOEZ/IMG-20190615-WA0000.jpg)
 
 ### What I used in this project
 

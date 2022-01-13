@@ -13,6 +13,7 @@ export interface PostInfo {
   date?: string | null
   cover?: string | null
   youtube?: string | string[] | null
+  slideshow?: string | string[] | null
 }
 
 export interface AllPostsInfo {

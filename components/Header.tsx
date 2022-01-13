@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
-import { isServer } from "../lib/nextHelpers"
 import { CategoryInfo } from "../lib/postsModel"
 import avatar from "../public/images/misc/avatar.png"
 import { Filler } from "./Basic"
@@ -15,7 +14,7 @@ export interface HeaderProps {
 export const Header: React.FunctionComponent<HeaderProps> = ({
   allCategories,
 }) => {
-  const [menuOpen, setMenuOpen] = React.useState(isServer)
+  const [menuOpen, setMenuOpen] = React.useState(false)
   const toggleMenu = React.useCallback(
     () => setMenuOpen(!menuOpen),
     [menuOpen, setMenuOpen]
