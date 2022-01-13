@@ -6,7 +6,7 @@ slideshow:
   - "/images/electronics/miniature-robotron-arcade-game/Chibitron.jpeg"
   - "/images/electronics/miniature-robotron-arcade-game/Chibitron_no_miku.jpeg"
   - "/images/electronics/miniature-robotron-arcade-game/Chibitron_hands.jpeg"
-  - "/images/electronics/miniature-robotron-arcade-game/Chibitron_inside.jpg"
+  - "/images/electronics/miniature-robotron-arcade-game/Chibitron_inside.JPG"
 youtube: 02cr04jR2DE
 ---
 Robotron 2084 is one of my all-time favourite arcade games. This 3d-printed miniature cabinet features the game in fully playable form with 4-way twin-sticks, 2 buttons (enter and esc) and a 1.8" lcd screen connected to SPI. The game is emulated in AdvanceMame and runs on a Raspberry Pi Zero. I designed the cabinet in Autodesk Fusion 360 and had it printed at Shapeways.
