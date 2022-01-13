@@ -20,7 +20,7 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
 
   return (
     <div className={"bg-zinc-900 rounded-xl overflow-hidden"}>
-      <div className="my-2" ref={observe}>
+      <div className="mb-1" ref={observe}>
         {displayImage ? (
           <Image
             className={"aspect-w-16 aspect-h-9"}
@@ -36,12 +36,12 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
       </div>
       {images.length > 1 ? (
         <div className="w-full overflow-x-auto overflow-y-hidden">
-          <div className="flex flex-row">
+          <div className="flex flex-row gap-1">
             {images.map((im, i) => (
               <a
                 key={`carousel-${i}`}
                 onClick={setCurrent.bind(this, i)}
-                className={"w-[100px] h-[100px]"}
+                className={"w-[100px] h-[100px] rounded overflow-hidden"}
               >
                 <Image
                   src={im}
