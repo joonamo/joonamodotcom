@@ -2,7 +2,11 @@
 title: "Shootball! (Ludum Dare Gamejam)"
 date: "2017"
 youtube: 99tSM_06pGE
-cover: /images/games/shootball/ffa3.png
+cover: /images/games/shootball/cover.png
+slideshow:
+  - /images/games/shootball/ffa3.png
+  - /images/games/shootball/ffa4.png
+  - /images/games/shootball/ffa5.png
 ---
 A game made in 48 hours for Ludum Dare 41 game jam.
 
