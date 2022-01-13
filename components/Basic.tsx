@@ -13,7 +13,7 @@ export const PageTitle: FunctionComponent<{
   <>
     <h1
       className={
-        "text-4xl md:text-5xl font-light pb-6 text-purple-100 " +
+        "text-5xl font-light pb-6 text-purple-100 break-words " +
         (props.className ?? "")
       }
     >
