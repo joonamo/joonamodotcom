@@ -3,13 +3,14 @@ import React, { FunctionComponent } from "react"
 import { ReactMarkdownProps } from "react-markdown/lib/complex-types"
 
 export const Youtube: FunctionComponent<{ id: string }> = (props) => (
-  <div
+  <span
     className={classNames(
       "aspect-w-16",
       "aspect-h-9",
       "rounded-xl",
       "overflow-hidden",
-      "bg-zinc-900"
+      "bg-zinc-900",
+      "block"
     )}
   >
     <iframe
@@ -19,7 +20,7 @@ export const Youtube: FunctionComponent<{ id: string }> = (props) => (
       allow="clipboard-write; encrypted-media; picture-in-picture"
       allowFullScreen
     />
-  </div>
+  </span>
 )
 
 export const YoutubeImageReplacer: FunctionComponent<

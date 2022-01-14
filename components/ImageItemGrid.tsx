@@ -5,8 +5,6 @@ import Link from "next/link"
 import React from "react"
 import useDimensions from "react-cool-dimensions"
 
-import { isServer } from "../lib/nextHelpers"
-
 interface ImageItem {
   title: string
   link: string
@@ -42,7 +40,6 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
   xlText,
 }) => {
   const { observe, width } = useDimensions<HTMLDivElement | null>()
-  const displayImage = item.image && (width > 0 || isServer)
 
   return (
     <Link href={item.link} passHref>
@@ -59,18 +56,16 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
           )}
           ref={observe}
         >
-          {displayImage ? (
-            <Image
-              key={String(item.image)}
-              src={item.image!}
-              alt={item.title}
-              layout="fill"
-              objectFit="cover"
-              sizes={width > 0 ? `${Math.round(width)}px` : "100vw"}
-              blurDataURL={item.blurDataURL ?? undefined}
-              placeholder={item.blurDataURL ? "blur" : "empty"}
-            />
-          ) : null}
+          <Image
+            key={String(item.image)}
+            src={item.image!}
+            alt={item.title}
+            layout="fill"
+            objectFit="cover"
+            sizes={width > 0 ? `${Math.round(width)}px` : "30vw"}
+            blurDataURL={item.blurDataURL ?? undefined}
+            placeholder={item.blurDataURL ? "blur" : "empty"}
+          />
           <div
             className={classNames(
               "w-full",

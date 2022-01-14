@@ -1,9 +1,6 @@
 import Image from "next/image"
 import { ImageProps } from "next/image"
 import { FunctionComponent, useCallback, useState } from "react"
-import useDimensions from "react-cool-dimensions"
-
-import { isServer } from "../lib/nextHelpers"
 
 interface props {
   images: Array<ImageProps["src"]>
@@ -14,34 +11,27 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
   const [current, setCurrent] = useState(0)
   const { images, blurs } = props
 
-  const { observe, width } = useDimensions<HTMLDivElement | null>()
-  const displayImage = width > 0 || isServer
-
   if (images.length === 0) return null
 
   return (
     <div className={"bg-zinc-900 rounded-xl overflow-hidden"}>
-      <div className="mb-1" ref={observe}>
-        {displayImage ? (
-          <Image
-            key={String(images[current])}
-            className={"aspect-w-16 aspect-h-9"}
-            src={images[current]}
-            alt="Displayed image"
-            layout="responsive"
-            objectFit="contain"
-            width={3}
-            height={2}
-            sizes={width > 0 ? `${Math.round(width)}px` : "100vw"}
-          />
-        ) : null}
+      <div className="mb-1 aspect-w-3 aspect-h-2 w-full">
+        <Image
+          key={String(images[current])}
+          src={images[current]}
+          alt="Displayed image"
+          layout="fill"
+          objectFit="contain"
+          quality={80}
+          priority={true}
+        />
       </div>
       {images.length > 1 ? (
         <div className="w-full overflow-x-auto overflow-y-hidden">
           <div className="flex flex-row gap-1">
             {images.map((img, i) => (
               <CarouselImage
-                key={1}
+                key={i}
                 img={img}
                 onClick={setCurrent}
                 i={i}
@@ -81,7 +71,7 @@ const CarouselImage: FunctionComponent<CarouselImageProps> = ({
         width="100px"
         height="100px"
         sizes="100px"
-        quality={60}
+        quality={70}
         placeholder={blur ? "blur" : "empty"}
         blurDataURL={blur ?? undefined}
       />

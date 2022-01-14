@@ -23,8 +23,8 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   return (
     <div className={classNames("w-full", "py-2", "mb-6", "bg-gray-900")}>
       <div className={classNames("jm-container", "flex")}>
-        <Link href="/" passHref>
-          <a>
+        <Link key="avatar" href="/" passHref>
+          <a className="rounded-full overflow-hidden h-[50px] w-[50px]">
             <Image
               src={avatar}
               alt="avatar"
@@ -32,12 +32,13 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
               objectFit="fill"
               width="50px"
               height="50px"
-              className="rounded-full"
+              quality={85}
+              placeholder="blur"
             />
           </a>
         </Link>
         <Filler />
-        <Link href="/" passHref>
+        <Link key="title" href="/" passHref>
           <a>
             <h1 className="font-thin text-5xl">Joonamo</h1>
           </a>
@@ -54,9 +55,18 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
             "place-content-around"
           )}
         >
-          <div key={1} className="w-full h-[3px] bg-indigo-300 rounded-full" />
-          <div key={2} className="w-full h-[3px] bg-indigo-300 rounded-full" />
-          <div key={3} className="w-full h-[3px] bg-indigo-300 rounded-full" />
+          <div
+            key={"a"}
+            className="w-full h-[3px] bg-indigo-300 rounded-full"
+          />
+          <div
+            key={"b"}
+            className="w-full h-[3px] bg-indigo-300 rounded-full"
+          />
+          <div
+            key={"c"}
+            className="w-full h-[3px] bg-indigo-300 rounded-full"
+          />
         </a>
       </div>
       <div
@@ -73,9 +83,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
         )}
       >
         {allCategories.map((category) => (
-          <>
-            <CategoryLink key={category.name} category={category} />
-          </>
+          <CategoryLink key={category.name} category={category} />
         ))}
       </div>
     </div>
