@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
+import Head from "next/head"
 import React from "react"
 import ReactMarkdown from "react-markdown"
 
@@ -16,6 +17,9 @@ interface Props extends BasePageProps, PageData {}
 const Project: NextPage<Props> = ({ data, content, allCategories }) => {
   return (
     <BasePage allCategories={allCategories}>
+      <Head>
+        <title>{data.title}</title>
+      </Head>
       <div className={"md:grid grid-cols-2 gap-6"}>
         <Column className="gap-4">
           <PageTitle>{data.title}</PageTitle>

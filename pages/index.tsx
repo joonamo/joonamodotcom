@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from "next"
+import Head from "next/head"
 import React from "react"
 
 import { BasePage, BasePageProps } from "../components/BasePage"
@@ -12,6 +13,9 @@ const IndexPage: NextPage<Props> = (props) => {
   const { allCategories } = props
   return (
     <BasePage allCategories={allCategories}>
+      <Head>
+        <title>Joonamo</title>
+      </Head>
       <PageTitle>Portfolio</PageTitle>
       <ImageItemGrid
         xlText={true}

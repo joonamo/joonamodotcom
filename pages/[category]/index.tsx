@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
+import Head from "next/head"
 import React from "react"
 
 import { BasePage, BasePageProps } from "../../components/BasePage"
@@ -21,6 +22,9 @@ const CategoryPage: NextPage<Props> = (props) => {
   const { category, posts, allCategories } = props
   return (
     <BasePage allCategories={allCategories}>
+      <Head>
+        <title>{category.title}</title>
+      </Head>
       <PageTitle>{category.title}</PageTitle>
       <ImageItemGrid
         items={posts?.map(({ pageName, title, cover }) => ({
