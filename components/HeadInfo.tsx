@@ -16,7 +16,12 @@ export const HeadInfo: React.FunctionComponent<HeadInfoProps> = (props) => (
     <meta name="og:title" content={props.title} />
     <meta name="description" content={props.description} />
     <meta name="og:description" content={props.description} />
-    <meta name="og:image" content={baseUrl + props.image} />
+    <meta
+      name="og:image"
+      content={`${baseUrl}/_next/image?url=${encodeURIComponent(
+        props.image
+      )}&w=640&q=75`}
+    />
     <meta name="og:type" content="website" />
     <meta name="og:url" content={baseUrl + props.path} />
   </Head>
