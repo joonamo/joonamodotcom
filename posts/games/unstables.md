@@ -7,6 +7,7 @@ slideshow:
   - /images/games/unstables/44f57.png
   - /images/games/unstables/4516a.png
   - /images/games/unstables/45166.png
+  - /images/games/unstables/45167.png
 ---
 ## Team Airfryer presents
 

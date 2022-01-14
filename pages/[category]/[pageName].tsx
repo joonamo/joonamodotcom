@@ -36,7 +36,10 @@ const Project: NextPage<Props> = ({
         <Column className="gap-4">
           <PageTitle>{data.title}</PageTitle>
           {data.slideshow ? (
-            <ImageCarousel images={listify(data.slideshow)} />
+            <ImageCarousel
+              images={listify(data.slideshow)}
+              blurs={data.slideshowBlur}
+            />
           ) : null}
           {data.youtube
             ? listify(data.youtube).map((id, i) => (
@@ -82,7 +85,9 @@ export const getStaticProps: GetStaticProps<Props> = async (props) => {
   const categoryName = props.params!.category as string
 
   const [dataAndContent, allCategories, category] = await Promise.all([
-    getPostData(categoryName, props.params!.pageName as string),
+    getPostData(categoryName, props.params!.pageName as string, {
+      includeSlideshowBlur: true,
+    }),
     getAllCategories(),
     getCategoryInfo(categoryName),
   ])

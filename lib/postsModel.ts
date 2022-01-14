@@ -16,6 +16,7 @@ export interface PostInfo {
   coverBlur?: string | null
   youtube?: string | string[] | null
   slideshow?: string | string[] | null
+  slideshowBlur?: Array<string | null> | null
 }
 
 export interface AllPostsInfo {
