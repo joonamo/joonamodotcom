@@ -1,8 +1,17 @@
+import classNames from "classnames"
 import React, { FunctionComponent } from "react"
 import { ReactMarkdownProps } from "react-markdown/lib/complex-types"
 
 export const Youtube: FunctionComponent<{ id: string }> = (props) => (
-  <div className={"aspect-w-16 aspect-h-9 rounded-xl overflow-hidden"}>
+  <div
+    className={classNames(
+      "aspect-w-16",
+      "aspect-h-9",
+      "rounded-xl",
+      "overflow-hidden",
+      "bg-zinc-900"
+    )}
+  >
     <iframe
       src={`https://www.youtube.com/embed/${props.id}`}
       title="YouTube video player"
