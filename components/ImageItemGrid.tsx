@@ -11,6 +11,7 @@ interface ImageItem {
   title: string
   link: string
   image?: ImageProps["src"] | null
+  blurDataURL?: string | null
 }
 
 interface GridProps {
@@ -60,11 +61,14 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
         >
           {displayImage ? (
             <Image
+              key={String(item.image)}
               src={item.image!}
               alt={item.title}
               layout="fill"
               objectFit="cover"
               sizes={width > 0 ? `${Math.round(width)}px` : "100vw"}
+              blurDataURL={item.blurDataURL ?? undefined}
+              placeholder={item.blurDataURL ? "blur" : "empty"}
             />
           ) : null}
           <div

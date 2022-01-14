@@ -4,6 +4,7 @@ export interface CategoryInfo {
   name: CategoryName
   title: string
   cover: string
+  coverBlur?: string | null
 }
 
 export interface PostInfo {
@@ -12,6 +13,7 @@ export interface PostInfo {
   title: string
   date?: string | null
   cover?: string | null
+  coverBlur?: string | null
   youtube?: string | string[] | null
   slideshow?: string | string[] | null
 }

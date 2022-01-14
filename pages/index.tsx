@@ -29,6 +29,7 @@ const IndexPage: NextPage<Props> = (props) => {
           title: category.title,
           link: category.name,
           image: category.cover,
+          blurDataURL: category.coverBlur,
         }))}
       />
     </BasePage>
@@ -36,7 +37,7 @@ const IndexPage: NextPage<Props> = (props) => {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const allCategories = await getAllCategories()
+  const allCategories = await getAllCategories(true)
   return {
     props: {
       allCategories,

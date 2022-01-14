@@ -30,10 +30,11 @@ const CategoryPage: NextPage<Props> = (props) => {
       />
       <PageTitle>{category.title}</PageTitle>
       <ImageItemGrid
-        items={posts?.map(({ pageName, title, cover }) => ({
+        items={posts?.map(({ pageName, title, cover, coverBlur }) => ({
           title: title,
           link: `${category.name}/${pageName}`,
           image: cover,
+          blurDataURL: coverBlur,
         }))}
       />
     </BasePage>
@@ -60,7 +61,7 @@ export const getStaticProps: GetStaticProps<Props> = async (props) => {
   const categoryName: CategoryName = String(props.params?.category)
 
   const [posts, category, allCategories] = await Promise.all([
-    getPostsByCategory(categoryName),
+    getPostsByCategory(categoryName, true),
     getCategoryInfo(categoryName),
     getAllCategories(),
   ])
