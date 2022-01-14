@@ -9,14 +9,14 @@ import { postsDirectory } from "./serverConfig"
 export async function getPostsByCategory(
   searchCategory?: CategoryName
 ): Promise<PostInfo[]> {
-  const postFiles = await glob.promise(`${searchCategory ?? "*"}/*/index.md`, {
+  const postFiles = await glob.promise(`${searchCategory ?? "*"}/*.md`, {
     cwd: postsDirectory,
   })
   return await Promise.all(
     postFiles.map(async (filename) => {
       const parts = filename.split("/")
-      const pageName = parts[parts.length - 2]
-      const category = parts[parts.length - 3]
+      const pageName = parts[parts.length - 1].slice(0, -3)
+      const category = parts[parts.length - 2]
       const { data } = await getPostData(category, pageName)
       return {
         category,
@@ -34,7 +34,7 @@ export async function getPostData(
   pageName: string
 ): Promise<PageData> {
   const markdown = await fs.readFile(
-    path.join(postsDirectory, category, pageName, "index.md"),
+    path.join(postsDirectory, category, `${pageName}.md`),
     { encoding: "utf-8" }
   )
   const decoded = matter(markdown)
