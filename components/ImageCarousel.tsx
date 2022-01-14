@@ -71,12 +71,9 @@ const CarouselImage: FunctionComponent<CarouselImageProps> = ({
   const action = useCallback(() => onClick(i), [onClick, i])
 
   return (
-    <a
-      key={`carousel-${i}`}
-      onClick={action}
-      className={"w-[100px] h-[100px] rounded overflow-hidden"}
-    >
+    <a key={`carousel-${i}`} onClick={action} className={"w-[100px] h-[100px]"}>
       <Image
+        className="rounded"
         src={img}
         alt="Slider Image"
         layout="fixed"
