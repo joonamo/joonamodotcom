@@ -1,21 +1,27 @@
 import type { GetStaticProps, NextPage } from "next"
-import Head from "next/head"
 import React from "react"
 
 import { BasePage, BasePageProps } from "../components/BasePage"
 import { PageTitle } from "../components/Basic"
+import { HeadInfo } from "../components/HeadInfo"
 import { ImageItemGrid } from "../components/ImageItemGrid"
 import { getAllCategories } from "../lib/categories"
 
-interface Props extends BasePageProps {}
+interface Props extends BasePageProps {
+  description: string
+}
 
 const IndexPage: NextPage<Props> = (props) => {
   const { allCategories } = props
   return (
     <BasePage allCategories={allCategories}>
-      <Head>
-        <title>Joonamo</title>
-      </Head>
+      <HeadInfo
+        title="Joonamo"
+        path=""
+        description={props.description}
+        image="/images/misc/avatar.png"
+      />
+
       <PageTitle>Portfolio</PageTitle>
       <ImageItemGrid
         xlText={true}
@@ -30,9 +36,17 @@ const IndexPage: NextPage<Props> = (props) => {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const allCategories = await getAllCategories()
   return {
     props: {
-      allCategories: await getAllCategories(),
+      allCategories,
+      description: `Portfolio of all the cool stuff I've made. ${allCategories
+        .map(
+          (category, i) =>
+            (i == 0 ? "" : i === allCategories.length - 1 ? " and " : ", ") +
+            category.title
+        )
+        .join("")}`,
     },
   }
 }

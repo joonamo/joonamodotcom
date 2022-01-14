@@ -1,25 +1,37 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next"
-import Head from "next/head"
 import React from "react"
 import ReactMarkdown from "react-markdown"
 
 import { BasePage, BasePageProps } from "../../components/BasePage"
 import { Column, PageTitle, Spacer } from "../../components/Basic"
+import { HeadInfo } from "../../components/HeadInfo"
 import { ImageCarousel } from "../../components/ImageCarousel"
 import { Youtube, YoutubeImageReplacer } from "../../components/Youtube"
-import { getAllCategories } from "../../lib/categories"
+import { getAllCategories, getCategoryInfo } from "../../lib/categories"
 import { listify } from "../../lib/helpers"
 import { getPostData, getPostsByCategory } from "../../lib/posts"
-import { PageData } from "../../lib/postsModel"
+import { CategoryInfo, PageData } from "../../lib/postsModel"
 
-interface Props extends BasePageProps, PageData {}
+interface Props extends BasePageProps, PageData {
+  category: CategoryInfo
+}
 
-const Project: NextPage<Props> = ({ data, content, allCategories }) => {
+const Project: NextPage<Props> = ({
+  data,
+  category,
+  content,
+  allCategories,
+}) => {
   return (
     <BasePage allCategories={allCategories}>
-      <Head>
-        <title>{data.title}</title>
-      </Head>
+      <HeadInfo
+        title={data.title}
+        path={`/${category.name}/${data.pageName}`}
+        description={`${data.title}, ${category.title}, ${
+          data.date ?? "not dated"
+        }`}
+        image={data.cover ?? category.cover}
+      />
       <div className={"md:grid grid-cols-2 gap-6"}>
         <Column className="gap-4">
           <PageTitle>{data.title}</PageTitle>
@@ -66,16 +78,17 @@ export const getStaticProps: GetStaticProps<Props> = async (props) => {
   if (!props.params?.category || !props.params?.pageName) {
     throw new Error("I need better params")
   }
-  const [data, allCategories] = await Promise.all([
-    getPostData(
-      props.params!.category as string,
-      props.params!.pageName as string
-    ),
+
+  const categoryName = props.params!.category as string
+
+  const [dataAndContent, allCategories, category] = await Promise.all([
+    getPostData(categoryName, props.params!.pageName as string),
     getAllCategories(),
+    getCategoryInfo(categoryName),
   ])
 
   return {
-    props: { ...data, allCategories },
+    props: { ...dataAndContent, category, allCategories },
   }
 }
 
