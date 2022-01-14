@@ -65,6 +65,10 @@ export const getStaticProps: GetStaticProps<Props> = async (props) => {
     getAllCategories(),
   ])
 
+  posts.sort((a, b) =>
+    a.date === b.date ? 0 : String(a.date) < String(b.date) ? 1 : -1
+  )
+
   return {
     props: {
       category,
