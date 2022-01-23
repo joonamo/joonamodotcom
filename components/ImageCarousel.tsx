@@ -1,7 +1,13 @@
 import classNames from "classnames"
 import Image from "next/image"
 import { ImageProps } from "next/image"
-import { FunctionComponent, useCallback, useMemo, useState } from "react"
+import {
+  FunctionComponent,
+  MouseEvent,
+  useCallback,
+  useMemo,
+  useState,
+} from "react"
 
 interface props {
   images: Array<ImageProps["src"]>
@@ -98,10 +104,21 @@ const CarouselImage: FunctionComponent<CarouselImageProps> = ({
   i,
   blur,
 }) => {
-  const action = useCallback(() => onClick(i), [onClick, i])
+  const action = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault()
+      onClick(i)
+    },
+    [onClick, i]
+  )
 
   return (
-    <a key={`carousel-${i}`} onClick={action} className={"w-[100px] h-[100px]"}>
+    <a
+      key={`carousel-${i}`}
+      onClick={action}
+      className={"w-[100px] h-[100px]"}
+      href={String(img)}
+    >
       <Image
         className="rounded"
         src={img}
