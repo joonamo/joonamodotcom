@@ -45,7 +45,6 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
             "bg-contain",
             "blur-2xl",
             "brightness-50",
-            // isLoading ? "animate-pulse" : null,
             "transition-all",
             "duration-1000"
           )}
@@ -53,6 +52,7 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
         />
         <Image
           src={images[current]}
+          key={String(images[current])}
           alt="Displayed image"
           layout="fill"
           objectFit="contain"
@@ -61,7 +61,7 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
           onLoadingComplete={onLoadingComplete}
           className={classNames(
             "transition-all",
-            "duration-500",
+            "duration-300",
             isLoading ? "opacity-0" : "opacity-100"
           )}
         />
@@ -110,7 +110,6 @@ const CarouselImage: FunctionComponent<CarouselImageProps> = ({
         objectFit="cover"
         width="100px"
         height="100px"
-        sizes="100px"
         quality={70}
         placeholder={blur ? "blur" : "empty"}
         blurDataURL={blur ?? undefined}
