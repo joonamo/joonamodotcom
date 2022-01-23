@@ -29,7 +29,15 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
 
   return (
     <div className={"bg-zinc-900 rounded-xl overflow-hidden"}>
-      <div className="mb-1 aspect-w-3 aspect-h-2 w-full overflow-hidden">
+      <div
+        className={classNames(
+          "mb-1",
+          "aspect-w-3",
+          "aspect-h-2",
+          "w-full",
+          "overflow-hidden"
+        )}
+      >
         <div
           className={classNames(
             "w-full",
@@ -37,12 +45,13 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
             "bg-contain",
             "blur-2xl",
             "brightness-50",
-            isLoading ? "animate-pulse" : null
+            // isLoading ? "animate-pulse" : null,
+            "transition-all",
+            "duration-1000"
           )}
           style={{ backgroundImage: `url(${blur})` }}
         />
         <Image
-          key={String(images[current])}
           src={images[current]}
           alt="Displayed image"
           layout="fill"
@@ -50,6 +59,11 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
           quality={80}
           priority={true}
           onLoadingComplete={onLoadingComplete}
+          className={classNames(
+            "transition-all",
+            "duration-500",
+            isLoading ? "opacity-0" : "opacity-100"
+          )}
         />
       </div>
       {images.length > 1 ? (
