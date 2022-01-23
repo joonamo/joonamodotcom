@@ -39,7 +39,6 @@
     @apply
       font-normal
       text-xl
-      pt-4
       text-indigo-200;
   }
 
@@ -47,7 +46,6 @@
     @apply
       font-normal
       text-lg
-      pt-4
       text-indigo-200;
   }
 
@@ -68,7 +66,6 @@
   .jm-container {
     @apply
       container
-      mx-auto
       px-4
       lg:px-10;
   }

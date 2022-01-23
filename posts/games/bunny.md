@@ -1,6 +1,6 @@
 ---
 title: "Bad Day to be a Bunny"
-date: "2021"
+date: "2021-04-26"
 cover: /images/games/bunny/cover.png
 slideshow:
   - /images/games/bunny/3db36.png

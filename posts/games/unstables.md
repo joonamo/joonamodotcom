@@ -1,6 +1,6 @@
 ---
 title: "Unstables"
-date: "2021"
+date: "2021-10-4"
 cover: /images/games/unstables/cover.png
 youtube: 3WS8plVPVrw
 slideshow:

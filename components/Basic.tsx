@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import { FunctionComponent } from "react"
 
 export const Column: FunctionComponent<{ className?: string }> = (props) => (
@@ -10,17 +11,20 @@ export const PageTitle: FunctionComponent<{
   subtitle?: string | null
   className?: string
 }> = (props) => (
-  <>
+  <div>
     <h1
-      className={
-        "text-5xl font-light pb-6 text-purple-100 break-words " +
-        (props.className ?? "")
-      }
+      className={classNames(
+        "text-5xl",
+        "font-light",
+        "text-purple-100",
+        "break-words",
+        props.className
+      )}
     >
       {props.children}
     </h1>
-    {props.subtitle && <p className={"pt-0"}>{props.subtitle}</p>}
-  </>
+    {props.subtitle && <p className={"py-0 my-0"}>{props.subtitle}</p>}
+  </div>
 )
 
 export const Spacer: FunctionComponent = () => <div className={"pt-4"} />

@@ -34,7 +34,7 @@ const Project: NextPage<Props> = ({
       />
       <div className={"md:grid grid-cols-2 gap-6"}>
         <Column className="gap-4">
-          <PageTitle>{data.title}</PageTitle>
+          <PageTitle subtitle={data.date}>{data.title}</PageTitle>
           {data.slideshow ? (
             <ImageCarousel
               images={listify(data.slideshow)}
