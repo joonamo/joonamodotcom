@@ -1,6 +1,7 @@
+import classNames from "classnames"
 import Image from "next/image"
 import { ImageProps } from "next/image"
-import { FunctionComponent, useCallback, useState } from "react"
+import { FunctionComponent, useCallback, useMemo, useState } from "react"
 
 interface props {
   images: Array<ImageProps["src"]>
@@ -9,13 +10,37 @@ interface props {
 
 export const ImageCarousel: FunctionComponent<props> = (props) => {
   const [current, setCurrent] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
+  const changeImage = useCallback(
+    (current: number) => {
+      setIsLoading(true)
+      setCurrent(current)
+    },
+    [setIsLoading, setCurrent]
+  )
+  const onLoadingComplete = useCallback(
+    () => setIsLoading(false),
+    [setIsLoading]
+  )
   const { images, blurs } = props
+  const blur = useMemo(() => blurs?.[current] ?? undefined, [blurs, current])
 
   if (images.length === 0) return null
 
   return (
     <div className={"bg-zinc-900 rounded-xl overflow-hidden"}>
-      <div className="mb-1 aspect-w-3 aspect-h-2 w-full">
+      <div className="mb-1 aspect-w-3 aspect-h-2 w-full overflow-hidden">
+        <div
+          className={classNames(
+            "w-full",
+            "h-full",
+            "bg-contain",
+            "blur-2xl",
+            "brightness-50",
+            isLoading ? "animate-pulse" : null
+          )}
+          style={{ backgroundImage: `url(${blur})` }}
+        />
         <Image
           key={String(images[current])}
           src={images[current]}
@@ -24,6 +49,7 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
           objectFit="contain"
           quality={80}
           priority={true}
+          onLoadingComplete={onLoadingComplete}
         />
       </div>
       {images.length > 1 ? (
@@ -33,7 +59,7 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
               <CarouselImage
                 key={i}
                 img={img}
-                onClick={setCurrent}
+                onClick={changeImage}
                 i={i}
                 blur={blurs && blurs[i]}
               />
