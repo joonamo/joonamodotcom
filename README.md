@@ -1,18 +1,20 @@
 # Joonamo.com
 
-Joonamo.com portfolio site
+[Joonamo.com](https://www.joonamo.com) portfolio site
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). Creates portfolio sites from Markdown files.
 
-## Getting Started
+## Requirements
 
-First, run the development server:
+- [node.js](https://nodejs.org/en/) 14
+- [yarn](https://yarnpkg.com/) 1.22.17
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Getting started
+
+- Install correct version of Node. If you're using nmv, you can run `nvm use`
+- Install yarn globally `npm i -g yarn`
+- Install dependencies with `yarn`
+- Start development server with ``
 
 ## Licence
 
