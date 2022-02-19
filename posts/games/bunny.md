@@ -26,4 +26,4 @@ All code, art, music and other assests created follow compo rules. We started ki
 ## More info
 - Play right here: [https://joonamo.github.io/ld48-deep/](https://joonamo.github.io/ld48-deep/)
 - Code in Github: [https://github.com/joonamo/ld48-deep/](https://github.com/joonamo/ld48-deep/)
-- Ludum Dare Page: [https://ldjam.com/events/ludum-dare/47/suburbian-bus-mayhem/](https://ldjam.com/events/ludum-dare/47/suburbian-bus-mayhem/)
+- Ludum Dare Page: [https://ldjam.com/events/ludum-dare/48/bad-day-to-be-a-bunny](https://ldjam.com/events/ludum-dare/48/bad-day-to-be-a-bunny)
