@@ -21,7 +21,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   )
 
   return (
-    <div className={classNames("w-full", "py-2", "mb-6", "bg-gray-900")}>
+    <div className={classNames("w-full", "py-2", "mb-3", "bg-gray-900")}>
       <div className={classNames("jm-container", "flex")}>
         <Link key="avatar" href="/" passHref>
           <a className="rounded-full overflow-hidden h-[50px] w-[50px]">

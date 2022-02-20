@@ -3,6 +3,10 @@ import React from "react"
 
 import { BasePage, BasePageProps } from "../../components/BasePage"
 import { PageTitle } from "../../components/Basic"
+import {
+  BreadCrumbs,
+  BreadCrumbsPathElement,
+} from "../../components/BreadCrumbs"
 import { HeadInfo } from "../../components/HeadInfo"
 import { ImageItemGrid } from "../../components/ImageItemGrid"
 import {
@@ -20,6 +24,14 @@ interface Props extends BasePageProps {
 
 const CategoryPage: NextPage<Props> = (props) => {
   const { category, posts, allCategories } = props
+  const breadCrumbsPath: BreadCrumbsPathElement[] = React.useMemo(
+    () => [
+      { name: "Portfolio", path: "/" },
+      { name: category.title, path: `/${category.name}` },
+    ],
+    [category.title, category.name]
+  )
+
   return (
     <BasePage allCategories={allCategories}>
       <HeadInfo
@@ -28,15 +40,18 @@ const CategoryPage: NextPage<Props> = (props) => {
         description={`${category.title} projects`}
         image={category.cover}
       />
-      <PageTitle>{category.title}</PageTitle>
-      <ImageItemGrid
-        items={posts?.map(({ pageName, title, cover, coverBlur }) => ({
-          title: title,
-          link: `${category.name}/${pageName}`,
-          image: cover,
-          blurDataURL: coverBlur,
-        }))}
-      />
+      <BreadCrumbs path={breadCrumbsPath} />
+      <div className="mt-4">
+        <PageTitle>{category.title}</PageTitle>
+        <ImageItemGrid
+          items={posts?.map(({ pageName, title, cover, coverBlur }) => ({
+            title: title,
+            link: `${category.name}/${pageName}`,
+            image: cover,
+            blurDataURL: coverBlur,
+          }))}
+        />
+      </div>
     </BasePage>
   )
 }

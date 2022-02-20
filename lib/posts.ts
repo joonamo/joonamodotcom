@@ -63,7 +63,7 @@ export async function getPostData(
 
   return {
     content: decoded.content,
-    data: { ...decoded.data, coverBlur, slideshowBlur } as PostInfo,
+    data: { ...decoded.data, pageName, coverBlur, slideshowBlur } as PostInfo,
   }
 }
 

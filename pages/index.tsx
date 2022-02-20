@@ -3,6 +3,7 @@ import React from "react"
 
 import { BasePage, BasePageProps } from "../components/BasePage"
 import { PageTitle } from "../components/Basic"
+import { BreadCrumbs } from "../components/BreadCrumbs"
 import { HeadInfo } from "../components/HeadInfo"
 import { ImageItemGrid } from "../components/ImageItemGrid"
 import { getAllCategories } from "../lib/categories"
@@ -21,17 +22,19 @@ const IndexPage: NextPage<Props> = (props) => {
         description={props.description}
         image="/images/misc/avatar.png"
       />
-
-      <PageTitle>Portfolio</PageTitle>
-      <ImageItemGrid
-        xlText={true}
-        items={allCategories.map((category) => ({
-          title: category.title,
-          link: category.name,
-          image: category.cover,
-          blurDataURL: category.coverBlur,
-        }))}
-      />
+      <BreadCrumbs path={[{ name: "Portfolio", path: "/" }]} />
+      <div className="mt-4">
+        <PageTitle>Portfolio</PageTitle>
+        <ImageItemGrid
+          xlText={true}
+          items={allCategories.map((category) => ({
+            title: category.title,
+            link: category.name,
+            image: category.cover,
+            blurDataURL: category.coverBlur,
+          }))}
+        />
+      </div>
     </BasePage>
   )
 }

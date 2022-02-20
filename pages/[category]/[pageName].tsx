@@ -4,6 +4,10 @@ import ReactMarkdown from "react-markdown"
 
 import { BasePage, BasePageProps } from "../../components/BasePage"
 import { Column, PageTitle, Spacer } from "../../components/Basic"
+import {
+  BreadCrumbs,
+  BreadCrumbsPathElement,
+} from "../../components/BreadCrumbs"
 import { HeadInfo } from "../../components/HeadInfo"
 import { ImageCarousel } from "../../components/ImageCarousel"
 import { Youtube, YoutubeImageReplacer } from "../../components/Youtube"
@@ -22,6 +26,14 @@ const Project: NextPage<Props> = ({
   content,
   allCategories,
 }) => {
+  const breadCrumbsPath: BreadCrumbsPathElement[] = React.useMemo(
+    () => [
+      { name: "Portfolio", path: "/" },
+      { name: category.title, path: `/${category.name}` },
+      { name: data.title, path: `/${category.name}/${data.pageName}` },
+    ],
+    [category.title, category.name, data.title, data.pageName]
+  )
   return (
     <BasePage allCategories={allCategories}>
       <HeadInfo
@@ -32,7 +44,8 @@ const Project: NextPage<Props> = ({
         }`}
         image={data.cover ?? category.cover}
       />
-      <div className={"md:grid grid-cols-2 gap-6"}>
+      <BreadCrumbs path={breadCrumbsPath} />
+      <div className={"md:grid grid-cols-2 gap-6 mt-4"}>
         <Column className="gap-4">
           <PageTitle subtitle={data.date}>{data.title}</PageTitle>
           {data.slideshow ? (
