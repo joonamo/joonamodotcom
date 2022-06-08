@@ -11,6 +11,10 @@ I wanted to follow latest entries in Piapro’s Snow Miku design contest, but th
 
 Accessing Piapro from Europe is quite slow, so I wanted to make my service as fast as possible. When user opens a page, the server starts caching the next one in the background. I also upgraded the server to use one of the fastest Python web server available, Fast API, but that gives very little boost to the performance. At least upgrading to asynchronous server should be more responsive in case the site starts getting more traffic and allowed me to learn more about Python 3’s asyncio.
 
+## 2022 renew
+
+In the spring of 2022, I practically rewrote the whole web app of snowmiku.net. Previously, the app was using [MobX](https://mobx.js.org/) state management system, but now it's just plain React Hooks. This made the app a little simpler to maintain. I also migrated the app from self-managed [Dokku](http://dokku.viewdocs.io/dokku/) instance to [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform).
+
 See the service live: [https://snowmiku.net](https://snowmiku.net)  
 All code in github: [https://github.com/joonamo/highres-miku/](https://github.com/joonamo/highres-miku/)
 
@@ -20,8 +24,11 @@ All code in github: [https://github.com/joonamo/highres-miku/](https://github.co
 - [httpx](https://www.python-httpx.org/)
 - [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/)
 - [React](https://reactjs.org/)
-- [MobX](https://mobx.js.org/)
+- [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Bulma](https://bulma.io/)
+
+### Technologies used previously:
+- [MobX](https://mobx.js.org/)
 - [Dokku](http://dokku.viewdocs.io/dokku/) (for hosting)
 - [nginx](https://nginx.org/)
