@@ -1,16 +1,22 @@
 import classNames from "classnames"
-import { FunctionComponent } from "react"
+import React, { FunctionComponent } from "react"
 
-export const Column: FunctionComponent<{ className?: string }> = (props) => (
+export const Column: FunctionComponent<
+  React.PropsWithChildren<{
+    className?: string
+  }>
+> = (props) => (
   <div className={"flex flex-col flex-1 " + (props.className ?? "")}>
     {props.children}
   </div>
 )
 
-export const PageTitle: FunctionComponent<{
-  subtitle?: string | null
-  className?: string
-}> = (props) => (
+export const PageTitle: FunctionComponent<
+  React.PropsWithChildren<{
+    subtitle?: string | null
+    className?: string
+  }>
+> = (props) => (
   <div>
     <h1
       className={classNames(

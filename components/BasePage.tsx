@@ -5,7 +5,9 @@ import { Header, HeaderProps } from "./Header"
 
 export interface BasePageProps extends HeaderProps {}
 
-export const BasePage: React.FunctionComponent<BasePageProps> = (props) => (
+export const BasePage: React.FunctionComponent<
+  React.PropsWithChildren<BasePageProps>
+> = (props) => (
   <>
     <Head>
       <script
