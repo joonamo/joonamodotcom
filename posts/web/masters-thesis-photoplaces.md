@@ -1,11 +1,11 @@
 ---
 title: "Master's Thesis: Photoplaces"
 date: "2015"
-cover: "/images/web/masters-thesis-photoplaces/gui+screenshot+2.png"
+cover: "/images/web/masters-thesis-photoplaces/gui-screenshot-2.png"
 slideshow: 
-  - /images/web/masters-thesis-photoplaces/gui+screenshot+2.png
-  - /images/web/masters-thesis-photoplaces/biking+pit+stop_.png
-  - /images/web/masters-thesis-photoplaces/flower+garden.png
+  - /images/web/masters-thesis-photoplaces/gui-screenshot-2.png
+  - /images/web/masters-thesis-photoplaces/biking-pit-stop_.png
+  - /images/web/masters-thesis-photoplaces/flower-garden.png
   - /images/web/masters-thesis-photoplaces/hanami.png
   - /images/web/masters-thesis-photoplaces/kobe_zoo_3.png
 ---
