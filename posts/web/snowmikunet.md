@@ -1,9 +1,9 @@
 ---
 title: "Snowmiku.net"
 date: "2020"
-cover: /images/web/snowmikunet/Screenshot+2020-03-07+at+22.55.55.png
+cover: /images/web/snowmikunet/Screenshot-2020-03-07-at-22.55.55.png
 slideshow:
-  - /images/web/snowmikunet/Screenshot+2020-03-07+at+22.55.55.png
+  - /images/web/snowmikunet/Screenshot-2020-03-07-at-22.55.55.png
   - /images/web/snowmikunet/screenshot.png
 ---
 
