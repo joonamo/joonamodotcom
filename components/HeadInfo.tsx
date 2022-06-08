@@ -24,5 +24,6 @@ export const HeadInfo: React.FunctionComponent<HeadInfoProps> = (props) => (
     />
     <meta name="og:type" content="website" />
     <meta name="og:url" content={baseUrl + props.path} />
+    <meta name="theme-color" content="#111827" />
   </Head>
 )
