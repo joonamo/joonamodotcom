@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Requirements
 
-- [node.js](https://nodejs.org/en/) 14
+- [node.js](https://nodejs.org/en/) 16
 - [yarn](https://yarnpkg.com/) 1.22.17
 
 ## Getting started
