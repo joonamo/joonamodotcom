@@ -24,7 +24,9 @@ export async function getCategoryInfo(
 
   const coverBlur =
     includeCoverBlur && data.cover
-      ? await getPlaiceholder(data.cover)
+      ? await getPlaiceholder(
+          await fs.readFile(path.join("./public", data.cover)),
+        )
           .then(({ base64 }) => base64)
           .catch(() => null)
       : null
