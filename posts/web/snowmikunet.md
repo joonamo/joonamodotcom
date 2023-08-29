@@ -15,7 +15,7 @@ Accessing Piapro from Europe is quite slow, so I wanted to make my service as fa
 
 In the spring of 2022, I practically rewrote the whole web app of snowmiku.net. Previously, the app was using [MobX](https://mobx.js.org/) state management system, but now it's just plain React Hooks. This made the app a little simpler to maintain. I also migrated the app from self-managed [Dokku](http://dokku.viewdocs.io/dokku/) instance to [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform).
 
-See the service live: [https://snowmiku.net](https://snowmiku.net)  
+See the service live: [https://snowmiku.net](https://snowmiku.net) (currently running [newer version](snowmiku-next)) 
 All code in github: [https://github.com/joonamo/highres-miku/](https://github.com/joonamo/highres-miku/)
 
 ### Technologies used:
