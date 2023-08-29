@@ -52,9 +52,14 @@ export async function getPostData(
 
   const coverBlur =
     options.includeCoverBlur && decoded.data.cover
-      ? await getPlaiceholder(decoded.data.cover)
+      ? await getPlaiceholder(
+          await fs.readFile(path.join("./public", decoded.data.cover)),
+        )
           .then(({ base64 }) => base64)
-          .catch(() => null)
+          .catch((e) => {
+            console.error(e)
+            return null
+          })
       : null
 
   const slideshowBlur = options.includeSlideshowBlur
@@ -77,9 +82,12 @@ async function getSlideshowBlur(
   return await Promise.all(
     listify(slideshow).map(async (slide) => {
       try {
-        const { base64 } = await getPlaiceholder(slide)
+        const { base64 } = await getPlaiceholder(
+          await fs.readFile(path.join("./public", slide)),
+        )
         return base64
-      } catch {
+      } catch (e) {
+        console.error(e)
         return null
       }
     }),

@@ -64,6 +64,7 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
             alt="Displayed image"
             layout="fill"
             objectFit="contain"
+            style={{ objectFit: "contain" }}
             quality={80}
             priority={true}
             onLoadingComplete={onLoadingComplete}
