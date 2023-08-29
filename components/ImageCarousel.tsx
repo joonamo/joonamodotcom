@@ -62,8 +62,7 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
             src={images[current]}
             key={String(images[current])}
             alt="Displayed image"
-            layout="fill"
-            objectFit="contain"
+            fill
             style={{ objectFit: "contain" }}
             quality={80}
             priority={true}

@@ -31,8 +31,6 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
           <Image
             src={avatar}
             alt="avatar"
-            layout="fixed"
-            objectFit="fill"
             width="50"
             height="50"
             quality={85}

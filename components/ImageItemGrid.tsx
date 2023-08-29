@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import { ImageProps } from "next/image"
-import Image from "next/legacy/image"
+import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 import useDimensions from "react-cool-dimensions"
@@ -59,8 +59,8 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
           key={String(item.image)}
           src={item.image!}
           alt={item.title}
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: "cover" }}
           sizes={width > 0 ? `${Math.round(width)}px` : "30vw"}
           blurDataURL={item.blurDataURL ?? undefined}
           placeholder={item.blurDataURL ? "blur" : "empty"}
