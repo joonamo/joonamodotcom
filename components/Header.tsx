@@ -33,7 +33,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
             alt="avatar"
             width="50"
             height="50"
-            quality={85}
+            quality={90}
             placeholder="blur"
           />
         </Link>
@@ -73,6 +73,22 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
           "lg:flex",
           "jm-container",
           "py-2",
+          "lg:py-0",
+          "justify-center",
+          "lg:justify-end",
+          "gap-4",
+          "flex-row",
+        )}
+      >
+        <SocialLink title="YouTube" url="https://youtube.com/@joonamo" />
+        <SocialLink title="GitHub" url="https://github.com/joonamo" />
+      </div>
+      <div
+        className={classNames(
+          menuOpen ? "flex" : "hidden",
+          "lg:flex",
+          "jm-container",
+          "py-1",
           "lg:justify-end",
           "text-2xl",
           "gap-4",
@@ -102,6 +118,22 @@ const CategoryLink: React.FunctionComponent<CategoryLinkProps> = ({
       className="text-violet-200"
     >
       {category.title}
+    </Link>
+  )
+}
+
+interface SocialLinkProps {
+  title: string
+  url: string
+}
+
+const SocialLink: React.FunctionComponent<SocialLinkProps> = ({
+  title,
+  url,
+}) => {
+  return (
+    <Link key={title} href={url} target="_blank" className="text-pink-200">
+      {title}
     </Link>
   )
 }
