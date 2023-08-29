@@ -10,7 +10,7 @@ interface BreadCrumbsProps {
 }
 
 export const BreadCrumbs: React.FunctionComponent<BreadCrumbsProps> = (
-  props
+  props,
 ) => (
   <div className="flex flex-row flex-wrap">
     {props.path.map((item, i) => (

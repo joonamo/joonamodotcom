@@ -10,7 +10,7 @@ import { postsDirectory } from "./serverConfig"
 
 export async function getPostsByCategory(
   searchCategory?: CategoryName,
-  includeCoverBlur?: boolean
+  includeCoverBlur?: boolean,
 ): Promise<PostInfo[]> {
   const postFiles = await glob.promise(`${searchCategory ?? "*"}/*.md`, {
     cwd: postsDirectory,
@@ -32,7 +32,7 @@ export async function getPostsByCategory(
         cover: data.cover ?? null,
         coverBlur: data.coverBlur ?? null,
       }
-    })
+    }),
   )
 }
 
@@ -42,11 +42,11 @@ export async function getPostData(
   options: {
     includeCoverBlur?: boolean
     includeSlideshowBlur?: boolean
-  } = {}
+  } = {},
 ): Promise<PageData> {
   const markdown = await fs.readFile(
     path.join(postsDirectory, category, `${pageName}.md`),
-    { encoding: "utf-8" }
+    { encoding: "utf-8" },
   )
   const decoded = matter(markdown)
 
@@ -68,7 +68,7 @@ export async function getPostData(
 }
 
 async function getSlideshowBlur(
-  slideshow?: string | string[] | null
+  slideshow?: string | string[] | null,
 ): Promise<Array<string | null> | null> {
   if (!slideshow) {
     return null
@@ -82,6 +82,6 @@ async function getSlideshowBlur(
       } catch {
         return null
       }
-    })
+    }),
   )
 }

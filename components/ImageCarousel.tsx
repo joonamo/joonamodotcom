@@ -18,15 +18,16 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
   const [current, setCurrent] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
   const changeImage = useCallback(
-    (current: number) => {
+    (requestedIdx: number) => {
+      if (requestedIdx === current) return
       setIsLoading(true)
-      setCurrent(current)
+      setCurrent(requestedIdx)
     },
-    [setIsLoading, setCurrent]
+    [setIsLoading, setCurrent, current],
   )
   const onLoadingComplete = useCallback(
     () => setIsLoading(false),
-    [setIsLoading]
+    [setIsLoading],
   )
   const { images, blurs } = props
   const blur = useMemo(() => blurs?.[current] ?? undefined, [blurs, current])
@@ -41,7 +42,7 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
           "aspect-w-3",
           "aspect-h-2",
           "w-full",
-          "overflow-hidden"
+          "overflow-hidden",
         )}
       >
         <div
@@ -52,25 +53,27 @@ export const ImageCarousel: FunctionComponent<props> = (props) => {
             "blur-2xl",
             "brightness-50",
             "transition-all",
-            "duration-1000"
+            "duration-1000",
           )}
           style={{ backgroundImage: `url(${blur})` }}
         />
-        <Image
-          src={images[current]}
-          key={String(images[current])}
-          alt="Displayed image"
-          layout="fill"
-          objectFit="contain"
-          quality={80}
-          priority={true}
-          onLoadingComplete={onLoadingComplete}
-          className={classNames(
-            "transition-all",
-            "duration-300",
-            isLoading ? "opacity-0" : "opacity-100"
-          )}
-        />
+        <a href={String(images[current])} target="_blank">
+          <Image
+            src={images[current]}
+            key={String(images[current])}
+            alt="Displayed image"
+            layout="fill"
+            objectFit="contain"
+            quality={80}
+            priority={true}
+            onLoadingComplete={onLoadingComplete}
+            className={classNames(
+              "transition-all",
+              "duration-300",
+              isLoading ? "opacity-0" : "opacity-100",
+            )}
+          />
+        </a>
       </div>
       {images.length > 1 ? (
         <div className="w-full overflow-x-auto overflow-y-hidden">
@@ -109,25 +112,24 @@ const CarouselImage: FunctionComponent<CarouselImageProps> = ({
       e.preventDefault()
       onClick(i)
     },
-    [onClick, i]
+    [onClick, i],
   )
 
   return (
     <a
       key={`carousel-${i}`}
       onClick={action}
-      className={"w-[100px] h-[100px]"}
+      className="w-[100px] h-[100px]"
       href={String(img)}
     >
       <Image
-        className="rounded"
+        className="rounded w-[100px] h-[100px] min-w-[100px]"
         src={img}
         alt="Slider Image"
-        layout="fixed"
-        objectFit="cover"
-        width="100px"
-        height="100px"
-        quality={70}
+        style={{ objectFit: "cover" }}
+        width="100"
+        height="100"
+        quality={75}
         placeholder={blur ? "blur" : "empty"}
         blurDataURL={blur ?? undefined}
       />

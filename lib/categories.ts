@@ -15,7 +15,7 @@ export async function getAllCategoryNames(): Promise<CategoryName[]> {
 
 export async function getCategoryInfo(
   name: CategoryName,
-  includeCoverBlur?: boolean
+  includeCoverBlur?: boolean,
 ): Promise<CategoryInfo> {
   const file = await fs.readFile(path.join(postsDirectory, name, "data.json"), {
     encoding: "utf-8",
@@ -38,11 +38,11 @@ export async function getCategoryInfo(
 }
 
 export async function getAllCategories(
-  includeCoverBlur?: boolean
+  includeCoverBlur?: boolean,
 ): Promise<CategoryInfo[]> {
   const names = await getAllCategoryNames()
 
   return await Promise.all(
-    names.map((name) => getCategoryInfo(name, includeCoverBlur))
+    names.map((name) => getCategoryInfo(name, includeCoverBlur)),
   )
 }

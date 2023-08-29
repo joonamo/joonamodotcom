@@ -29,7 +29,7 @@ const CategoryPage: NextPage<Props> = (props) => {
       { name: "Portfolio", path: "/" },
       { name: category.title, path: `/${category.name}` },
     ],
-    [category.title, category.name]
+    [category.title, category.name],
   )
 
   return (
@@ -82,7 +82,7 @@ export const getStaticProps: GetStaticProps<Props> = async (props) => {
   ])
 
   posts.sort((a, b) =>
-    a.date === b.date ? 0 : String(a.date) < String(b.date) ? 1 : -1
+    a.date === b.date ? 0 : String(a.date) < String(b.date) ? 1 : -1,
   )
 
   return {

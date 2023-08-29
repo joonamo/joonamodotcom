@@ -10,7 +10,7 @@ export const Youtube: FunctionComponent<{ id: string }> = (props) => (
       "rounded-xl",
       "overflow-hidden",
       "bg-zinc-900",
-      "block"
+      "block",
     )}
   >
     <iframe

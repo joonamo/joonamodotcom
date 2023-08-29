@@ -42,58 +42,56 @@ const ImageItemComponent: React.FunctionComponent<ItemProps> = ({
   const { observe, width } = useDimensions<HTMLDivElement | null>()
 
   return (
-    <Link href={item.link} passHref>
-      <a>
+    <Link href={item.link}>
+      <div
+        className={classNames(
+          "aspect-w-3",
+          "aspect-h-2",
+          "lg:aspect-w-1",
+          "lg:aspect-h-1",
+          "overflow-hidden",
+          "rounded-3xl",
+          "bg-slate-700",
+        )}
+        ref={observe}
+      >
+        <Image
+          key={String(item.image)}
+          src={item.image!}
+          alt={item.title}
+          layout="fill"
+          objectFit="cover"
+          sizes={width > 0 ? `${Math.round(width)}px` : "30vw"}
+          blurDataURL={item.blurDataURL ?? undefined}
+          placeholder={item.blurDataURL ? "blur" : "empty"}
+        />
         <div
           className={classNames(
-            "aspect-w-3",
-            "aspect-h-2",
-            "lg:aspect-w-1",
-            "lg:aspect-h-1",
-            "overflow-hidden",
-            "rounded-3xl",
-            "bg-slate-700"
+            "w-full",
+            "h-full",
+            "flex",
+            "flex-col",
+            "justify-end",
           )}
-          ref={observe}
         >
-          <Image
-            key={String(item.image)}
-            src={item.image!}
-            alt={item.title}
-            layout="fill"
-            objectFit="cover"
-            sizes={width > 0 ? `${Math.round(width)}px` : "30vw"}
-            blurDataURL={item.blurDataURL ?? undefined}
-            placeholder={item.blurDataURL ? "blur" : "empty"}
-          />
-          <div
+          <h2
             className={classNames(
-              "w-full",
-              "h-full",
-              "flex",
-              "flex-col",
-              "justify-end"
+              "bg-slate-900/75",
+              "text-right",
+              "px-5",
+              "pb-3",
+              "min-h-[30%]",
+              xlText
+                ? "text-5xl xl:text-6xl"
+                : "text-4xl lg:text-2xl xl:text-4xl",
+              "font-thin",
+              "hover:underline",
             )}
           >
-            <h2
-              className={classNames(
-                "bg-slate-900/75",
-                "text-right",
-                "px-5",
-                "pb-3",
-                "min-h-[30%]",
-                xlText
-                  ? "text-5xl xl:text-6xl"
-                  : "text-4xl lg:text-2xl xl:text-4xl",
-                "font-thin",
-                "hover:underline"
-              )}
-            >
-              {item.title}
-            </h2>
-          </div>
+            {item.title}
+          </h2>
         </div>
-      </a>
+      </div>
     </Link>
   )
 }

@@ -17,31 +17,31 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   const [menuOpen, setMenuOpen] = React.useState(false)
   const toggleMenu = React.useCallback(
     () => setMenuOpen(!menuOpen),
-    [menuOpen, setMenuOpen]
+    [menuOpen, setMenuOpen],
   )
 
   return (
     <div className={classNames("w-full", "py-2", "mb-3", "bg-gray-900")}>
       <div className={classNames("jm-container", "flex")}>
-        <Link key="avatar" href="/" passHref>
-          <a className="rounded-full overflow-hidden h-[50px] w-[50px]">
-            <Image
-              src={avatar}
-              alt="avatar"
-              layout="fixed"
-              objectFit="fill"
-              width="50px"
-              height="50px"
-              quality={85}
-              placeholder="blur"
-            />
-          </a>
+        <Link
+          key="avatar"
+          href="/"
+          className="rounded-full overflow-hidden h-[50px] w-[50px]"
+        >
+          <Image
+            src={avatar}
+            alt="avatar"
+            layout="fixed"
+            objectFit="fill"
+            width="50"
+            height="50"
+            quality={85}
+            placeholder="blur"
+          />
         </Link>
         <Filler />
         <Link key="title" href="/" passHref>
-          <a>
-            <h1 className="font-thin text-5xl">Joonamo</h1>
-          </a>
+          <h1 className="font-thin text-5xl">Joonamo</h1>
         </Link>
       </div>
       <div className="flex lg:hidden place-content-center mt-4">
@@ -52,7 +52,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
             "flex-col",
             "w-1/5",
             "h-[30px]",
-            "place-content-around"
+            "place-content-around",
           )}
         >
           <div
@@ -79,7 +79,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
           "text-2xl",
           "gap-4",
           "flex-col",
-          "lg:flex-row"
+          "lg:flex-row",
         )}
       >
         {allCategories.map((category) => (
@@ -101,11 +101,9 @@ const CategoryLink: React.FunctionComponent<CategoryLinkProps> = ({
     <Link
       key={category.name}
       href={`/${encodeURIComponent(category.name)}`}
-      passHref
+      className="text-violet-200"
     >
-      <a key={category.name} className="text-violet-200">
-        {category.title}
-      </a>
+      {category.title}
     </Link>
   )
 }

@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         .map(
           (category, i) =>
             (i == 0 ? "" : i === allCategories.length - 1 ? " and " : ", ") +
-            category.title
+            category.title,
         )
         .join("")}`,
     },

@@ -24,7 +24,7 @@ export const PageTitle: FunctionComponent<
         "font-light",
         "text-purple-100",
         "break-words",
-        props.className
+        props.className,
       )}
     >
       {props.children}

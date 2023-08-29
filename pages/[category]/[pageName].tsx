@@ -32,7 +32,7 @@ const Project: NextPage<Props> = ({
       { name: category.title, path: `/${category.name}` },
       { name: data.title, path: `/${category.name}/${data.pageName}` },
     ],
-    [category.title, category.name, data.title, data.pageName]
+    [category.title, category.name, data.title, data.pageName],
   )
   return (
     <BasePage allCategories={allCategories}>
