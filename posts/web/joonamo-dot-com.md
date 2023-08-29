@@ -15,6 +15,8 @@ All of the code and content are contained in one [git repository](https://github
 
 I'm very happy how the page looks and scales to different devices. The deployed pages are very fast from Vercel and developing the pages with React and next.js is a joy. Writing Markdown is good way to write blog posts like this, but I must admit it's a bit heavy that I need to upload new pages and images to Github instead of using a VYSIWYG editor...
 
+All code in Github: [https://github.com/joonamo/joonamodotcom](https://github.com/joonamo/joonamodotcom)
+
 ## Used technology
 - [React](https://react.dev/)
 - [next.js](https://nextjs.org/)
