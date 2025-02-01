@@ -11,7 +11,7 @@
     font-family: 'Roboto', sans-serif;
 
     @apply
-      font-thin
+      font-light
       bg-gray-800
       text-pink-50;
   }
